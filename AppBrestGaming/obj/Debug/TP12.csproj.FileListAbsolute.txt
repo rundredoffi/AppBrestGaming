@@ -1,0 +1,28 @@
+Z:\BTS1\B2-SLAM\AppBrestGaming\AppBrestGaming\bin\Debug\AppBrestGaming.exe.config
+Z:\BTS1\B2-SLAM\AppBrestGaming\AppBrestGaming\bin\Debug\AppBrestGaming.exe
+Z:\BTS1\B2-SLAM\AppBrestGaming\AppBrestGaming\bin\Debug\AppBrestGaming.pdb
+Z:\BTS1\B2-SLAM\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.csproj.AssemblyReference.cache
+Z:\BTS1\B2-SLAM\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.FormMenu.resources
+Z:\BTS1\B2-SLAM\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.Properties.Resources.resources
+Z:\BTS1\B2-SLAM\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.csproj.GenerateResource.cache
+Z:\BTS1\B2-SLAM\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.csproj.CoreCompileInputs.cache
+Z:\BTS1\B2-SLAM\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.exe
+Z:\BTS1\B2-SLAM\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.pdb
+Z:\BTS1\B2-SLAM\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.Equipes.resources
+Z:\BTS1\B2-SLAM\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.Form1.resources
+Z:\BTS1\B2-SLAM\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.FormDetailEquipe.resources
+C:\Travail\TravailSLAM\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.csproj.AssemblyReference.cache
+C:\Travail\TravailSLAM\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.exe
+C:\Travail\TravailSLAM\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.pdb
+Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\bin\Debug\AppBrestGaming.exe.config
+Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\bin\Debug\AppBrestGaming.exe
+Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\bin\Debug\AppBrestGaming.pdb
+Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.csproj.AssemblyReference.cache
+Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.Equipes.resources
+Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.FormDetailEquipe.resources
+Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.FormMenu.resources
+Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.Properties.Resources.resources
+Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.csproj.GenerateResource.cache
+Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.csproj.CoreCompileInputs.cache
+Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.exe
+Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.pdb
