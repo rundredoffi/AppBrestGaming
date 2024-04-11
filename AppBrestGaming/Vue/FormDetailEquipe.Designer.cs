@@ -83,9 +83,9 @@ namespace AppBrestGaming
             // 
             // numeroEquipeDetailsEquipe
             // 
-            this.numeroEquipeDetailsEquipe.Location = new System.Drawing.Point(375, 71);
+            this.numeroEquipeDetailsEquipe.Location = new System.Drawing.Point(345, 71);
             this.numeroEquipeDetailsEquipe.Name = "numeroEquipeDetailsEquipe";
-            this.numeroEquipeDetailsEquipe.Size = new System.Drawing.Size(120, 20);
+            this.numeroEquipeDetailsEquipe.Size = new System.Drawing.Size(51, 20);
             this.numeroEquipeDetailsEquipe.TabIndex = 4;
             this.numeroEquipeDetailsEquipe.Value = new decimal(new int[] {
             1,
@@ -97,7 +97,7 @@ namespace AppBrestGaming
             // 
             this.texteNumeroEquipeDetailsEquipe.AutoSize = true;
             this.texteNumeroEquipeDetailsEquipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.texteNumeroEquipeDetailsEquipe.Location = new System.Drawing.Point(231, 73);
+            this.texteNumeroEquipeDetailsEquipe.Location = new System.Drawing.Point(201, 73);
             this.texteNumeroEquipeDetailsEquipe.Name = "texteNumeroEquipeDetailsEquipe";
             this.texteNumeroEquipeDetailsEquipe.Size = new System.Drawing.Size(74, 16);
             this.texteNumeroEquipeDetailsEquipe.TabIndex = 5;
@@ -107,7 +107,7 @@ namespace AppBrestGaming
             // 
             this.texteNomEquipedetailsEquipe.AutoSize = true;
             this.texteNomEquipedetailsEquipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.texteNomEquipedetailsEquipe.Location = new System.Drawing.Point(231, 110);
+            this.texteNomEquipedetailsEquipe.Location = new System.Drawing.Point(201, 110);
             this.texteNomEquipedetailsEquipe.Name = "texteNomEquipedetailsEquipe";
             this.texteNomEquipedetailsEquipe.Size = new System.Drawing.Size(57, 16);
             this.texteNomEquipedetailsEquipe.TabIndex = 6;
@@ -117,7 +117,7 @@ namespace AppBrestGaming
             // 
             this.nomDetailsEquipe.AutoSize = true;
             this.nomDetailsEquipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nomDetailsEquipe.Location = new System.Drawing.Point(371, 110);
+            this.nomDetailsEquipe.Location = new System.Drawing.Point(341, 110);
             this.nomDetailsEquipe.Name = "nomDetailsEquipe";
             this.nomDetailsEquipe.Size = new System.Drawing.Size(55, 20);
             this.nomDetailsEquipe.TabIndex = 7;
@@ -126,9 +126,9 @@ namespace AppBrestGaming
             // logoDetailsEquipe
             // 
             this.logoDetailsEquipe.Image = ((System.Drawing.Image)(resources.GetObject("logoDetailsEquipe.Image")));
-            this.logoDetailsEquipe.Location = new System.Drawing.Point(595, 3);
+            this.logoDetailsEquipe.Location = new System.Drawing.Point(593, 3);
             this.logoDetailsEquipe.Name = "logoDetailsEquipe";
-            this.logoDetailsEquipe.Size = new System.Drawing.Size(193, 210);
+            this.logoDetailsEquipe.Size = new System.Drawing.Size(195, 214);
             this.logoDetailsEquipe.TabIndex = 8;
             this.logoDetailsEquipe.TabStop = false;
             // 
@@ -140,7 +140,7 @@ namespace AppBrestGaming
             this.roleTableauDetailsEquipe,
             this.paystableauDetailsEquipe});
             this.tableauDetailsEquipe.HideSelection = false;
-            this.tableauDetailsEquipe.Location = new System.Drawing.Point(195, 145);
+            this.tableauDetailsEquipe.Location = new System.Drawing.Point(105, 145);
             this.tableauDetailsEquipe.Name = "tableauDetailsEquipe";
             this.tableauDetailsEquipe.Size = new System.Drawing.Size(421, 179);
             this.tableauDetailsEquipe.TabIndex = 9;

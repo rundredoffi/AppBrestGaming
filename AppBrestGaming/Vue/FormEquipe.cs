@@ -12,30 +12,42 @@ namespace AppBrestGaming.Vue
 {
     public partial class FormEquipe : Form
     {
+        private Modele.EquipeDAO daoEquipe = new Modele.EquipeDAO();
         public FormEquipe()
         {
             InitializeComponent();
         }
-
-        private void FormEquipe_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void detailsEquipes_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormDetailEquipe FormDetailsEquipe = new FormDetailEquipe();
-            FormDetailsEquipe.ShowDialog();
-            this.Show();
+            if (tableauEquipes.SelectedItems != null && tableauEquipes.SelectedItems.Count > 0)
+            {
+                if (int.TryParse(tableauEquipes.SelectedItems[0].Text, out int idEquipe))
+                {
+                    this.Hide();
+                    FormDetailEquipe FormDetailsEquipe = new FormDetailEquipe(idEquipe);
+                    FormDetailsEquipe.ShowDialog();
+                    this.Show();
+                }
+            }
         }
 
         private void equipesChargement(object sender, EventArgs e)
         {
-            ListViewItem item1 = new ListViewItem("1");
-            item1.SubItems.Add("Vitality");
-            item1.SubItems.Add("https://vitality.gg/");
-            tableauEquipes.Items.Add(item1);
+            foreach (Modele.Equipe equipe in daoEquipe.GetListeEquipes())
+            {
+                ListViewItem item = new ListViewItem(equipe.Id.ToString());
+                item.SubItems.Add(equipe.Nom);
+                item.SubItems.Add(equipe.SiteWeb);
+                if (equipe.ListeJoueurs != null)
+                {
+                    item.SubItems.Add(equipe.ListeJoueurs.Count.ToString());
+                }
+                else
+                {
+                    item.SubItems.Add("Erreur");
+                }
+                tableauEquipes.Items.Add(item);
+            }
         }
 
         private void retourEquipes_Click(object sender, EventArgs e)

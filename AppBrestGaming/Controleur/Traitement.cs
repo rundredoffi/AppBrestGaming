@@ -159,10 +159,10 @@ namespace AppBrestGaming.Controleur
         public void AfficherEquipes()
         {
             Console.WriteLine("Liste des équipes :");
-            Dictionary<int, Modele.Equipe> listeEquipe = monDAO.GetListeEquipes();
+            List<Modele.Equipe> listeEquipe = monDAO.GetListeEquipes();
             if (listeEquipe != null)
             {
-                foreach (Modele.Equipe equipe in listeEquipe.Values)
+                foreach (Modele.Equipe equipe in listeEquipe)
                 {
                     Console.WriteLine($"ID: {equipe.Id}, Nom: {equipe.Nom}");
                 }

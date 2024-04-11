@@ -30,34 +30,11 @@ namespace AppBrestGaming.Vue
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "equipe-01.jpg",
-            "Vitality",
-            "https://vitality.gg/"}, "(aucun)");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "equipe-02.jpg",
-            "Gentle Mates",
-            "https://gentlemates.com/fr/"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
-            "equipe-03.jpg",
-            "Karmine Corp",
-            "https://www.karminecorp.fr/"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
-            "equipe-04.jpg",
-            "Fnatic",
-            "https://fnatic.com/"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
-            "equipe-05.jpg",
-            "Team liquid",
-            "https://www.teamliquid.com/"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
-            "equipe-06.jpg",
-            "Dignitas",
-            "https://dignitas.gg/"}, -1);
             this.tableauEquipes = new System.Windows.Forms.ListView();
             this.logoEquipes = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nomEquipes = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.siteEquipes = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nbJoueurs = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.detailsEquipes = new System.Windows.Forms.Button();
             this.ajouterEquipes = new System.Windows.Forms.Button();
             this.modifierEquipes = new System.Windows.Forms.Button();
@@ -71,26 +48,21 @@ namespace AppBrestGaming.Vue
             this.tableauEquipes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.logoEquipes,
             this.nomEquipes,
-            this.siteEquipes});
+            this.siteEquipes,
+            this.nbJoueurs});
+            this.tableauEquipes.FullRowSelect = true;
             this.tableauEquipes.HideSelection = false;
-            listViewItem1.StateImageIndex = 0;
-            this.tableauEquipes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6});
-            this.tableauEquipes.Location = new System.Drawing.Point(99, 77);
+            this.tableauEquipes.Location = new System.Drawing.Point(45, 82);
+            this.tableauEquipes.MultiSelect = false;
             this.tableauEquipes.Name = "tableauEquipes";
-            this.tableauEquipes.Size = new System.Drawing.Size(600, 206);
+            this.tableauEquipes.Size = new System.Drawing.Size(714, 206);
             this.tableauEquipes.TabIndex = 0;
             this.tableauEquipes.UseCompatibleStateImageBehavior = false;
             this.tableauEquipes.View = System.Windows.Forms.View.Details;
             // 
             // logoEquipes
             // 
-            this.logoEquipes.Text = "Logo";
+            this.logoEquipes.Text = "ID Equipe";
             this.logoEquipes.Width = 200;
             // 
             // nomEquipes
@@ -101,7 +73,12 @@ namespace AppBrestGaming.Vue
             // siteEquipes
             // 
             this.siteEquipes.Text = "Site Web";
-            this.siteEquipes.Width = 200;
+            this.siteEquipes.Width = 192;
+            // 
+            // nbJoueurs
+            // 
+            this.nbJoueurs.Text = "NB Joueurs";
+            this.nbJoueurs.Width = 96;
             // 
             // detailsEquipes
             // 
@@ -210,5 +187,6 @@ namespace AppBrestGaming.Vue
         private System.Windows.Forms.Button supprimerEquipes;
         private System.Windows.Forms.Button retourEquipes;
         private System.Windows.Forms.Label titreEquipes;
+        private System.Windows.Forms.ColumnHeader nbJoueurs;
     }
 }

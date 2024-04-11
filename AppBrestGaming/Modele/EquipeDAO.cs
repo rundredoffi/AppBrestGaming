@@ -10,12 +10,12 @@ namespace AppBrestGaming.Modele
 {
     public class EquipeDAO
     {
-        private Dictionary<int, Equipe> listeEquipes;
+        private List<Equipe> listeEquipes;
         // Connexion SQL :
         MySqlConnection maConnexion = ConnexionBddDAO.GetInstance();
-        public Dictionary<int, Equipe> GetListeEquipes()
+        public List<Modele.Equipe> GetListeEquipes()
         {
-            listeEquipes = new Dictionary<int, Equipe>();
+            listeEquipes = new List<Modele.Equipe>();
             try
             {
                 // Exécution de la requête SQL
@@ -32,9 +32,13 @@ namespace AppBrestGaming.Modele
                             string siteWeb = reader.GetString("SITEWEB");
                             string logo = reader.GetString("LOGOEQUIPE");
                             Equipe EquipeToAdd = new Equipe(equipeID, nomEquipe, siteWeb, logo,null);
-                            listeEquipes.Add(equipeID, EquipeToAdd);
+                            listeEquipes.Add(EquipeToAdd);
                         }
 
+                    }
+                    foreach (Modele.Equipe equipe in listeEquipes)
+                    {
+                        equipe.ListeJoueurs = GetListeFromEquipe(equipe.Id);
                     }
                     return listeEquipes;
                 }

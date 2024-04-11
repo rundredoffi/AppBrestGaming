@@ -12,9 +12,12 @@ namespace AppBrestGaming
 {
     public partial class FormDetailEquipe : Form
     {
-        public FormDetailEquipe()
+        private Modele.EquipeDAO daoEquipe = new Modele.EquipeDAO();
+        private Modele.Equipe equipeCourante;
+        public FormDetailEquipe(int idEquipeParam)
         {
             InitializeComponent();
+            equipeCourante = daoEquipe.GetEquipeById(idEquipeParam);
         }
 
         private void quitterDetailsEquipe_Click(object sender, EventArgs e)
@@ -24,6 +27,9 @@ namespace AppBrestGaming
 
         private void detailsEquipeChargement(object sender, EventArgs e)
         {
+            // Ajout des informations générale de l'équipe
+            this.numeroEquipeDetailsEquipe.Value = equipeCourante.Id;
+
             ListViewItem item1 = new ListViewItem("Scarface");
             item1.SubItems.Add("Vitality");
             item1.SubItems.Add("Vitality");
