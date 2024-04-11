@@ -29,12 +29,19 @@ namespace AppBrestGaming
         {
             // Ajout des informations générale de l'équipe
             this.numeroEquipeDetailsEquipe.Value = equipeCourante.Id;
+            this.nomDetailsEquipe.Text = equipeCourante.Nom;
 
-            ListViewItem item1 = new ListViewItem("Scarface");
-            item1.SubItems.Add("Vitality");
-            item1.SubItems.Add("Vitality");
-            item1.SubItems.Add("Vitality");
-            tableauDetailsEquipe.Items.Add(item1);
+            if (equipeCourante.ListeJoueurs != null)
+            {
+                foreach (Modele.Personne personne in equipeCourante.ListeJoueurs)
+                {
+                    ListViewItem item = new ListViewItem(personne.Pseudo);
+                    item.SubItems.Add(personne.Nomjoueur);
+                    item.SubItems.Add(personne.Role);
+                    item.SubItems.Add(personne.Pays);
+                    tableauDetailsEquipe.Items.Add(item);
+                }
+            }
         }
     }
 }
