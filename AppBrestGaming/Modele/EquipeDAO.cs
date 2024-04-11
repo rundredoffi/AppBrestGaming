@@ -128,10 +128,10 @@ namespace AppBrestGaming.Modele
                 string requeteSql = $"SELECT * FROM equipe WHERE NOMEQUIPE = '{nomEquipe}';";
                 if (maConnexion != null)
                 {
+                    List<Personne> listePlayers = new List<Personne>();
                     MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
                     using (MySqlDataReader reader = commande.ExecuteReader())
                     {
-                        List<Personne> listePlayers = new List<Personne>();
                         while (reader.Read())
                         {
                             int idEquipe = reader.GetInt32("IDEQUIPE");
@@ -140,10 +140,9 @@ namespace AppBrestGaming.Modele
                             string logoEquipe = reader.GetString("LOGOEQUIPE");
                             equipeResultat = new Equipe(idEquipe, nomTeam, siteEquipe, logoEquipe, listePlayers);
                         }
-                        listePlayers = GetListeFromEquipe(equipeResultat.Id);
-                        equipeResultat.ListeJoueurs = listePlayers;
-
                     }
+                    listePlayers = GetListeFromEquipe(equipeResultat.Id);
+                    equipeResultat.ListeJoueurs = listePlayers;
                 }
                 return equipeResultat;
             }
