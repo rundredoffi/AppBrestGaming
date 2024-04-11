@@ -27,6 +27,7 @@ namespace AppBrestGaming
 
         private void detailsEquipeChargement(object sender, EventArgs e)
         {
+            // POUR IMAGE, soit placé dans le dossier bin/debug
             // Ajout des informations générale de l'équipe
             this.numeroEquipeDetailsEquipe.Value = equipeCourante.Id;
             this.nomDetailsEquipe.Text = equipeCourante.Nom;
