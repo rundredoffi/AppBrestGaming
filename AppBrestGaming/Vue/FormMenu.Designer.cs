@@ -35,6 +35,7 @@ namespace AppBrestGaming.Vue
             this.administrationAcceuil = new System.Windows.Forms.Button();
             this.datesAcceuil = new System.Windows.Forms.Label();
             this.bienvenueUserTextAcceuil = new System.Windows.Forms.Label();
+            this.quitterButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logoBGAcceuil)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +69,7 @@ namespace AppBrestGaming.Vue
             this.equipesAcceuil.TabIndex = 3;
             this.equipesAcceuil.Text = "Equipes";
             this.equipesAcceuil.UseVisualStyleBackColor = false;
-            this.equipesAcceuil.Click += new System.EventHandler(this.equipesAcceuil_Click_1);
+            this.equipesAcceuil.Click += new System.EventHandler(this.equipesAcceuil_Click);
             // 
             // joueursAcceuil
             // 
@@ -142,12 +143,27 @@ namespace AppBrestGaming.Vue
             this.bienvenueUserTextAcceuil.TabIndex = 9;
             this.bienvenueUserTextAcceuil.Text = "UtilisateurAdmin";
             // 
+            // quitterButton
+            // 
+            this.quitterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.quitterButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.quitterButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitterButton.ForeColor = System.Drawing.Color.White;
+            this.quitterButton.Location = new System.Drawing.Point(582, 384);
+            this.quitterButton.Name = "quitterButton";
+            this.quitterButton.Size = new System.Drawing.Size(170, 49);
+            this.quitterButton.TabIndex = 10;
+            this.quitterButton.Text = "Quitter";
+            this.quitterButton.UseVisualStyleBackColor = false;
+            this.quitterButton.Click += new System.EventHandler(this.quitterButton_Click);
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.quitterButton);
             this.Controls.Add(this.bienvenueUserTextAcceuil);
             this.Controls.Add(this.datesAcceuil);
             this.Controls.Add(this.administrationAcceuil);
@@ -159,7 +175,6 @@ namespace AppBrestGaming.Vue
             this.Controls.Add(this.logoBGAcceuil);
             this.Name = "FormMenu";
             this.Text = "FormMenu";
-            this.Load += new System.EventHandler(this.FormMenu_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.logoBGAcceuil)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -176,5 +191,6 @@ namespace AppBrestGaming.Vue
         private System.Windows.Forms.Button administrationAcceuil;
         private System.Windows.Forms.Label datesAcceuil;
         private System.Windows.Forms.Label bienvenueUserTextAcceuil;
+        private System.Windows.Forms.Button quitterButton;
     }
 }

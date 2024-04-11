@@ -127,7 +127,7 @@
     <Compile Include="Modele\PersonneDAO.cs" />
     <Compile Include="Modele\Plateforme.cs" />
     <Compile Include="Modele\PlateformeDAO.cs" />
-    <Compile Include="Controleur\Program.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Vue\FormDetailEquipe.resx">
       <DependentUpon>FormDetailEquipe.cs</DependentUpon>
@@ -147,7 +147,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Vue\packages.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -159,7 +159,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Vue\App.config" />
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

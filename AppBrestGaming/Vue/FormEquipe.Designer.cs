@@ -165,6 +165,7 @@ namespace AppBrestGaming.Vue
             this.retourEquipes.TabIndex = 8;
             this.retourEquipes.Text = "Retour";
             this.retourEquipes.UseVisualStyleBackColor = false;
+            this.retourEquipes.Click += new System.EventHandler(this.retourEquipes_Click);
             // 
             // titreEquipes
             // 
@@ -176,7 +177,7 @@ namespace AppBrestGaming.Vue
             this.titreEquipes.TabIndex = 9;
             this.titreEquipes.Text = "Liste des équipes :";
             // 
-            // Equipes
+            // FormEquipe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -189,7 +190,7 @@ namespace AppBrestGaming.Vue
             this.Controls.Add(this.ajouterEquipes);
             this.Controls.Add(this.detailsEquipes);
             this.Controls.Add(this.tableauEquipes);
-            this.Name = "Equipes";
+            this.Name = "FormEquipe";
             this.Text = "Equipes";
             this.Load += new System.EventHandler(this.equipesChargement);
             this.ResumeLayout(false);

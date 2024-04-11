@@ -10,17 +10,17 @@ namespace AppBrestGaming.Controleur
     public class Traitement
     {
         private FichierLog ficLog;
-        private JeuDAO gestionDesJeux;
-        private EquipeDAO monDAO = new EquipeDAO();
-        private PersonneDAO persDao = new PersonneDAO();
-        private PlateformeDAO platDao = new PlateformeDAO();
-        private JeuDAO jeuDao = new JeuDAO();
+        private Modele.JeuDAO gestionDesJeux;
+        private Modele.EquipeDAO monDAO = new Modele.EquipeDAO();
+        private Modele.PersonneDAO persDao = new Modele.PersonneDAO();
+        private Modele.PlateformeDAO platDao = new Modele.PlateformeDAO();
+        private Modele.JeuDAO jeuDao = new Modele.JeuDAO();
 
         public Traitement()
         {
             ficLog = new FichierLog("connexions.log");
             Initialisation();
-            gestionDesJeux = new JeuDAO();
+            gestionDesJeux = new Modele.JeuDAO();
         }
 
         void Initialisation()
@@ -81,7 +81,7 @@ namespace AppBrestGaming.Controleur
         public void AfficherJeux()
         {
             int nbJeu = 1;
-            foreach (Jeu monJeu in jeuDao.GetListe())
+            foreach (Modele.Jeu monJeu in jeuDao.GetListe())
             {
                 Console.WriteLine($"{nbJeu} {monJeu.ToString()}");
                 nbJeu++;
@@ -115,7 +115,7 @@ namespace AppBrestGaming.Controleur
             Console.WriteLine("Saissiez le lien vers le logo : ");
             string nouveauJeuLogo = Console.ReadLine();
             // Créer un nouveau jeu et l'ajouter à la liste
-            Jeu nouveauJeu = new Jeu(nouveauJeuId, nouveauJeuNom, nouveauJeuGenre, nouveauJeuEditeur, nouveauJeuLogo, null);
+            Modele.Jeu nouveauJeu = new Modele.Jeu(nouveauJeuId, nouveauJeuNom, nouveauJeuGenre, nouveauJeuEditeur, nouveauJeuLogo, null);
             if (jeuDao.Ajout(nouveauJeu))
             {
                 Console.WriteLine("Jeu ajouté ! ");
@@ -145,7 +145,7 @@ namespace AppBrestGaming.Controleur
             string nouveauJeuEditeur = Console.ReadLine();
             Console.WriteLine("Saissiez le lien vers le logo : ");
             string nouveauJeuLogo = Console.ReadLine();
-            Jeu nouveauJeu = new Jeu(idJeu, nouveauJeuNom, nouveauJeuGenre, nouveauJeuEditeur, nouveauJeuLogo, null);
+            Modele.Jeu nouveauJeu = new Modele.Jeu(idJeu, nouveauJeuNom, nouveauJeuGenre, nouveauJeuEditeur, nouveauJeuLogo, null);
             if (jeuDao.Modification(idJeu, nouveauJeu))
             {
                 Console.WriteLine("Jeu modifié !");
@@ -159,10 +159,10 @@ namespace AppBrestGaming.Controleur
         public void AfficherEquipes()
         {
             Console.WriteLine("Liste des équipes :");
-            Dictionary<int, Equipe> listeEquipe = monDAO.GetListeEquipes();
+            Dictionary<int, Modele.Equipe> listeEquipe = monDAO.GetListeEquipes();
             if (listeEquipe != null)
             {
-                foreach (Equipe equipe in listeEquipe.Values)
+                foreach (Modele.Equipe equipe in listeEquipe.Values)
                 {
                     Console.WriteLine($"ID: {equipe.Id}, Nom: {equipe.Nom}");
                 }
@@ -178,7 +178,7 @@ namespace AppBrestGaming.Controleur
             string nomEquipe = Console.ReadLine();
             Console.WriteLine("Insérer le site web : ");
             string webSite = Console.ReadLine();
-            Equipe nouvelleEquipe = new Equipe(1, $"{nomEquipe}", $"{webSite}", $"logo.png", null);
+            Modele.Equipe nouvelleEquipe = new Modele.Equipe(1, $"{nomEquipe}", $"{webSite}", $"logo.png", null);
 
             bool ajoutReussi = monDAO.AjoutEquipe(nouvelleEquipe);
             if (ajoutReussi)
@@ -198,12 +198,12 @@ namespace AppBrestGaming.Controleur
             if (int.TryParse(input, out id))
             {
                 // Afficher l'équipe par son ID
-                Equipe equipe = monDAO.GetEquipeById(id);
+                Modele.Equipe equipe = monDAO.GetEquipeById(id);
                 if (equipe != null)
                 {
                     Console.WriteLine($"ID: {equipe.Id}, \nNom: {equipe.Nom}, \nSite Web: {equipe.SiteWeb}, \nImage: {equipe.ImageEquipe}, \nNb personnes: { equipe.ListeJoueurs.Count}");
                     Console.WriteLine($"--- Liste des joueurs de {equipe.Nom} ---");
-                    foreach (Personne Joueur in equipe.ListeJoueurs)
+                    foreach (Modele.Personne Joueur in equipe.ListeJoueurs)
                     {
                         Console.WriteLine($"{Joueur.Pseudo} - {Joueur.Nomjoueur} - {Joueur.Role}");
                     }
@@ -216,12 +216,12 @@ namespace AppBrestGaming.Controleur
             else
             {
                 // Afficher l'équipe par son nom
-                Equipe equipe = monDAO.GetEquipeByNom(input);
+                Modele.Equipe equipe = monDAO.GetEquipeByNom(input);
                 if (equipe != null)
                 {
                     Console.WriteLine($"ID: {equipe.Id}, \nNom: {equipe.Nom}, \nSite Web: {equipe.SiteWeb}, \nImage: {equipe.ImageEquipe}");
                     Console.WriteLine($"--- Liste des joueurs de {equipe.Nom} ---");
-                    foreach (Personne Joueur in equipe.ListeJoueurs)
+                    foreach (Modele.Personne Joueur in equipe.ListeJoueurs)
                     {
                         Console.WriteLine($"{Joueur.Pseudo} - {Joueur.Nomjoueur} - {Joueur.Role}");
                     }
@@ -241,7 +241,7 @@ namespace AppBrestGaming.Controleur
         }
         public void AfficherListeJoueurs()
         {
-            List<Personne> listePers = persDao.GetListe();
+            List<Modele.Personne> listePers = persDao.GetListe();
             Console.WriteLine($"Nb personnes : {listePers.Count}");
         }
         public void AjouterJoueur()
@@ -259,7 +259,7 @@ namespace AppBrestGaming.Controleur
             string pays = Console.ReadLine();
             Console.WriteLine("Insérer son rôle : ");
             string role = Console.ReadLine().ToLower();
-            Personne personneCreer = new Personne(0, numChambre, idEquipe, pseudo, nom, pays, role);
+            Modele.Personne personneCreer = new Modele.Personne(0, numChambre, idEquipe, pseudo, nom, pays, role);
             if (persDao.Ajout(personneCreer))
             {
                 Console.WriteLine("Ajout réussi ! ");
@@ -287,7 +287,7 @@ namespace AppBrestGaming.Controleur
             string pays = Console.ReadLine();
             Console.WriteLine("Insérer son rôle : ");
             string role = Console.ReadLine().ToLower();
-            Personne personneModifier = new Personne(0, numChambre, idEquipe, pseudo, nom, pays, role);
+            Modele.Personne personneModifier = new Modele.Personne(0, numChambre, idEquipe, pseudo, nom, pays, role);
             if(persDao.Modification(id, personneModifier))
             {
                 Console.WriteLine("Personne modifié !");
@@ -314,8 +314,8 @@ namespace AppBrestGaming.Controleur
         public void AfficherListePlateformes()
         {
             Console.WriteLine("Liste des plateformes");
-            List<Plateforme> listePlateformes = platDao.GetListe();
-            foreach(Plateforme plat in listePlateformes)
+            List<Modele.Plateforme> listePlateformes = platDao.GetListe();
+            foreach(Modele.Plateforme plat in listePlateformes)
             {
                 Console.WriteLine($"{plat.IdPlateforme} - {plat.NomPlateforme}");
             }
@@ -325,10 +325,10 @@ namespace AppBrestGaming.Controleur
             Console.WriteLine("Liste en fonction d'un jeu");
             Console.WriteLine("Insérer l'identifiant du jeu : ");
             int idJeu = int.Parse(Console.ReadLine());
-            List<Plateforme> listePlateformes = platDao.GetListeFromJeu(idJeu);
+            List<Modele.Plateforme> listePlateformes = platDao.GetListeFromJeu(idJeu);
             if(listePlateformes != null)
             {
-                foreach (Plateforme plat in listePlateformes)
+                foreach (Modele.Plateforme plat in listePlateformes)
                 {
                     Console.WriteLine($"{plat.IdPlateforme} - {plat.NomPlateforme}");
                 }
@@ -351,7 +351,7 @@ namespace AppBrestGaming.Controleur
             int idPlateforme = int.Parse(Console.ReadLine());
             Console.WriteLine("Insérer le nom de la plateforme : ");
             string nomPlateforme = Console.ReadLine();
-            Plateforme plateformeCreer = new Plateforme(idPlateforme, nomPlateforme);
+            Modele.Plateforme plateformeCreer = new Modele.Plateforme(idPlateforme, nomPlateforme);
             if (platDao.Ajout(plateformeCreer))
             {
                 Console.WriteLine("Ajout réussi ! ");
@@ -369,7 +369,7 @@ namespace AppBrestGaming.Controleur
             Console.WriteLine(platDao.GetById(idPlateforme).ToString());
             Console.WriteLine("Insérer son nom : ");
             string nomPlateforme = Console.ReadLine();
-            Plateforme plateformeModifier = new Plateforme(idPlateforme, nomPlateforme);
+            Modele.Plateforme plateformeModifier = new Modele.Plateforme(idPlateforme, nomPlateforme);
             if (platDao.Modification(idPlateforme, plateformeModifier))
             {
                 Console.WriteLine("Personne modifié !");

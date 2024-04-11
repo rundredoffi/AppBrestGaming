@@ -21,22 +21,14 @@ namespace AppBrestGaming.Vue
         {
             this.Hide();
             FormEquipe formulaireEquipe = new FormEquipe();
-            formulaireEquipe.Show();
+            formulaireEquipe.ShowDialog();
+            this.Show();
         }
 
-        private void FormMenu_Load(object sender, EventArgs e)
+        private void quitterButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void equipesAcceuil_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormMenu_Load_1(object sender, EventArgs e)
-        {
-
+            this.Close();
+            Application.Exit();
         }
     }
 }

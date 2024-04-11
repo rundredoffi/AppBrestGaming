@@ -2,9 +2,7 @@ Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\bin\Debug\AppBrest
 Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\bin\Debug\AppBrestGaming.exe
 Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\bin\Debug\AppBrestGaming.pdb
 Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.csproj.AssemblyReference.cache
-Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.Equipes.resources
 Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.FormDetailEquipe.resources
-Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.FormMenu.resources
 Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.Properties.Resources.resources
 Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.csproj.GenerateResource.cache
 Z:\BTS 1\Informatique\B2 - Slam\AppBrestGaming\AppBrestGaming\obj\Debug\AppBrestGaming.csproj.CoreCompileInputs.cache
