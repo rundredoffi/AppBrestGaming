@@ -99,7 +99,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controleur\FichierLog.cs" />
-    <Compile Include="Controleur\Traitement.cs" />
     <Compile Include="Vue\FormDetailEquipe.cs">
       <SubType>Form</SubType>
     </Compile>

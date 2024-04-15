@@ -119,6 +119,7 @@ namespace AppBrestGaming.Vue
             this.modifierEquipes.TabIndex = 6;
             this.modifierEquipes.Text = "Modifier";
             this.modifierEquipes.UseVisualStyleBackColor = false;
+            this.modifierEquipes.Click += new System.EventHandler(this.modifierEquipes_Click);
             // 
             // supprimerEquipes
             // 

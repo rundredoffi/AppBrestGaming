@@ -14,8 +14,11 @@ namespace AppBrestGaming
     {
         private Modele.EquipeDAO daoEquipe = new Modele.EquipeDAO();
         private Modele.Equipe equipeCourante;
-        public FormDetailEquipe(int idEquipeParam)
+        // Utilisation de cette variable pour switch entre les modes
+        private int modeForm;
+        public FormDetailEquipe(int idEquipeParam, int mode)
         {
+            this.modeForm = mode;
             InitializeComponent();
             equipeCourante = daoEquipe.GetEquipeById(idEquipeParam);
         }
@@ -27,11 +30,26 @@ namespace AppBrestGaming
 
         private void detailsEquipeChargement(object sender, EventArgs e)
         {
-            // POUR IMAGE, soit placé dans le dossier bin/debug
-            // Ajout des informations générale de l'équipe
-            this.numeroEquipeDetailsEquipe.Value = equipeCourante.Id;
-            this.nomDetailsEquipe.Text = equipeCourante.Nom;
-
+            switch (modeForm){
+                case 1:
+                    detailsEquipe();
+                    break;
+                case 2:
+                    modifEquipe();
+                    break;
+                case 3:
+                    break;
+                default:
+                    break;
+            }
+        }
+        // Fonction pour le switch case
+        private void detailsEquipe()
+        {
+            this.headerDetailsEquipe.Enabled = false;
+            this.idEquipe.Text = equipeCourante.Id.ToString();
+            this.nomEquipe.Text = equipeCourante.Nom;
+            this.siteWebEquipe.Text = equipeCourante.SiteWeb;
             if (equipeCourante.ListeJoueurs != null)
             {
                 foreach (Modele.Personne personne in equipeCourante.ListeJoueurs)
@@ -43,6 +61,10 @@ namespace AppBrestGaming
                     tableauDetailsEquipe.Items.Add(item);
                 }
             }
+        }
+        private void modifEquipe()
+        {
+            this.headerDetailsEquipe.Hide();
         }
     }
 }

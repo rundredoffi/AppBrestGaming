@@ -24,10 +24,14 @@ namespace AppBrestGaming.Vue
                 if (int.TryParse(tableauEquipes.SelectedItems[0].Text, out int idEquipe))
                 {
                     this.Hide();
-                    FormDetailEquipe FormDetailsEquipe = new FormDetailEquipe(idEquipe);
+                    FormDetailEquipe FormDetailsEquipe = new FormDetailEquipe(idEquipe,1);
                     FormDetailsEquipe.ShowDialog();
                     this.Show();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez choisir une équipe", "Alerte", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -53,6 +57,24 @@ namespace AppBrestGaming.Vue
         private void retourEquipes_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void modifierEquipes_Click(object sender, EventArgs e)
+        {
+            if (tableauEquipes.SelectedItems != null && tableauEquipes.SelectedItems.Count > 0)
+            {
+                if (int.TryParse(tableauEquipes.SelectedItems[0].Text, out int idEquipe))
+                {
+                    this.Hide();
+                    FormDetailEquipe FormDetailsEquipe = new FormDetailEquipe(idEquipe, 2);
+                    FormDetailsEquipe.ShowDialog();
+                    this.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez choisir une équipe", "Alerte", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

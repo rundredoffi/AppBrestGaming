@@ -33,10 +33,7 @@ namespace AppBrestGaming
             this.voirPlusDetailsEquipes = new System.Windows.Forms.Button();
             this.modifierDetailsEquipe = new System.Windows.Forms.Button();
             this.supprimerDetailsEquipe = new System.Windows.Forms.Button();
-            this.numeroEquipeDetailsEquipe = new System.Windows.Forms.NumericUpDown();
             this.texteNumeroEquipeDetailsEquipe = new System.Windows.Forms.Label();
-            this.texteNomEquipedetailsEquipe = new System.Windows.Forms.Label();
-            this.nomDetailsEquipe = new System.Windows.Forms.Label();
             this.logoDetailsEquipe = new System.Windows.Forms.PictureBox();
             this.tableauDetailsEquipe = new System.Windows.Forms.ListView();
             this.pseudoTableauDetailsEquipe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,8 +41,12 @@ namespace AppBrestGaming
             this.roleTableauDetailsEquipe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.paystableauDetailsEquipe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.quitterDetailsEquipe = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numeroEquipeDetailsEquipe)).BeginInit();
+            this.headerDetailsEquipe = new System.Windows.Forms.GroupBox();
+            this.nomEquipe = new System.Windows.Forms.TextBox();
+            this.siteWebEquipe = new System.Windows.Forms.TextBox();
+            this.idEquipe = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.logoDetailsEquipe)).BeginInit();
+            this.headerDetailsEquipe.SuspendLayout();
             this.SuspendLayout();
             // 
             // voirPlusDetailsEquipes
@@ -81,47 +82,15 @@ namespace AppBrestGaming
             this.supprimerDetailsEquipe.Text = "Supprimer";
             this.supprimerDetailsEquipe.UseVisualStyleBackColor = false;
             // 
-            // numeroEquipeDetailsEquipe
-            // 
-            this.numeroEquipeDetailsEquipe.Location = new System.Drawing.Point(345, 71);
-            this.numeroEquipeDetailsEquipe.Name = "numeroEquipeDetailsEquipe";
-            this.numeroEquipeDetailsEquipe.Size = new System.Drawing.Size(51, 20);
-            this.numeroEquipeDetailsEquipe.TabIndex = 4;
-            this.numeroEquipeDetailsEquipe.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // texteNumeroEquipeDetailsEquipe
             // 
             this.texteNumeroEquipeDetailsEquipe.AutoSize = true;
             this.texteNumeroEquipeDetailsEquipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.texteNumeroEquipeDetailsEquipe.Location = new System.Drawing.Point(201, 73);
+            this.texteNumeroEquipeDetailsEquipe.Location = new System.Drawing.Point(44, 46);
             this.texteNumeroEquipeDetailsEquipe.Name = "texteNumeroEquipeDetailsEquipe";
             this.texteNumeroEquipeDetailsEquipe.Size = new System.Drawing.Size(74, 16);
             this.texteNumeroEquipeDetailsEquipe.TabIndex = 5;
             this.texteNumeroEquipeDetailsEquipe.Text = "Equipe n°";
-            // 
-            // texteNomEquipedetailsEquipe
-            // 
-            this.texteNomEquipedetailsEquipe.AutoSize = true;
-            this.texteNomEquipedetailsEquipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.texteNomEquipedetailsEquipe.Location = new System.Drawing.Point(201, 110);
-            this.texteNomEquipedetailsEquipe.Name = "texteNomEquipedetailsEquipe";
-            this.texteNomEquipedetailsEquipe.Size = new System.Drawing.Size(57, 16);
-            this.texteNomEquipedetailsEquipe.TabIndex = 6;
-            this.texteNomEquipedetailsEquipe.Text = "Equipe";
-            // 
-            // nomDetailsEquipe
-            // 
-            this.nomDetailsEquipe.AutoSize = true;
-            this.nomDetailsEquipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nomDetailsEquipe.Location = new System.Drawing.Point(341, 110);
-            this.nomDetailsEquipe.Name = "nomDetailsEquipe";
-            this.nomDetailsEquipe.Size = new System.Drawing.Size(55, 20);
-            this.nomDetailsEquipe.TabIndex = 7;
-            this.nomDetailsEquipe.Text = "Vitality";
             // 
             // logoDetailsEquipe
             // 
@@ -139,8 +108,9 @@ namespace AppBrestGaming
             this.nomTableauDetailsEquipe,
             this.roleTableauDetailsEquipe,
             this.paystableauDetailsEquipe});
+            this.tableauDetailsEquipe.FullRowSelect = true;
             this.tableauDetailsEquipe.HideSelection = false;
-            this.tableauDetailsEquipe.Location = new System.Drawing.Point(105, 145);
+            this.tableauDetailsEquipe.Location = new System.Drawing.Point(110, 160);
             this.tableauDetailsEquipe.Name = "tableauDetailsEquipe";
             this.tableauDetailsEquipe.Size = new System.Drawing.Size(421, 179);
             this.tableauDetailsEquipe.TabIndex = 9;
@@ -179,6 +149,39 @@ namespace AppBrestGaming
             this.quitterDetailsEquipe.UseVisualStyleBackColor = false;
             this.quitterDetailsEquipe.Click += new System.EventHandler(this.quitterDetailsEquipe_Click);
             // 
+            // headerDetailsEquipe
+            // 
+            this.headerDetailsEquipe.Controls.Add(this.idEquipe);
+            this.headerDetailsEquipe.Controls.Add(this.nomEquipe);
+            this.headerDetailsEquipe.Controls.Add(this.siteWebEquipe);
+            this.headerDetailsEquipe.Location = new System.Drawing.Point(182, 12);
+            this.headerDetailsEquipe.Name = "headerDetailsEquipe";
+            this.headerDetailsEquipe.Size = new System.Drawing.Size(349, 142);
+            this.headerDetailsEquipe.TabIndex = 15;
+            this.headerDetailsEquipe.TabStop = false;
+            this.headerDetailsEquipe.Text = "groupBox1";
+            // 
+            // nomEquipe
+            // 
+            this.nomEquipe.Location = new System.Drawing.Point(183, 47);
+            this.nomEquipe.Name = "nomEquipe";
+            this.nomEquipe.Size = new System.Drawing.Size(158, 20);
+            this.nomEquipe.TabIndex = 6;
+            // 
+            // siteWebEquipe
+            // 
+            this.siteWebEquipe.Location = new System.Drawing.Point(183, 73);
+            this.siteWebEquipe.Name = "siteWebEquipe";
+            this.siteWebEquipe.Size = new System.Drawing.Size(158, 20);
+            this.siteWebEquipe.TabIndex = 7;
+            // 
+            // idEquipe
+            // 
+            this.idEquipe.Location = new System.Drawing.Point(183, 21);
+            this.idEquipe.Name = "idEquipe";
+            this.idEquipe.Size = new System.Drawing.Size(158, 20);
+            this.idEquipe.TabIndex = 8;
+            // 
             // FormDetailEquipe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,22 +190,19 @@ namespace AppBrestGaming
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
             this.Controls.Add(this.quitterDetailsEquipe);
-            this.Controls.Add(this.tableauDetailsEquipe);
             this.Controls.Add(this.logoDetailsEquipe);
-            this.Controls.Add(this.nomDetailsEquipe);
-            this.Controls.Add(this.texteNomEquipedetailsEquipe);
-            this.Controls.Add(this.texteNumeroEquipeDetailsEquipe);
-            this.Controls.Add(this.numeroEquipeDetailsEquipe);
             this.Controls.Add(this.supprimerDetailsEquipe);
             this.Controls.Add(this.modifierDetailsEquipe);
             this.Controls.Add(this.voirPlusDetailsEquipes);
+            this.Controls.Add(this.tableauDetailsEquipe);
+            this.Controls.Add(this.headerDetailsEquipe);
             this.Name = "FormDetailEquipe";
             this.Text = "Détails équipe";
             this.Load += new System.EventHandler(this.detailsEquipeChargement);
-            ((System.ComponentModel.ISupportInitialize)(this.numeroEquipeDetailsEquipe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoDetailsEquipe)).EndInit();
+            this.headerDetailsEquipe.ResumeLayout(false);
+            this.headerDetailsEquipe.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -211,10 +211,7 @@ namespace AppBrestGaming
         private System.Windows.Forms.Button voirPlusDetailsEquipes;
         private System.Windows.Forms.Button modifierDetailsEquipe;
         private System.Windows.Forms.Button supprimerDetailsEquipe;
-        private System.Windows.Forms.NumericUpDown numeroEquipeDetailsEquipe;
         private System.Windows.Forms.Label texteNumeroEquipeDetailsEquipe;
-        private System.Windows.Forms.Label texteNomEquipedetailsEquipe;
-        private System.Windows.Forms.Label nomDetailsEquipe;
         private System.Windows.Forms.PictureBox logoDetailsEquipe;
         private System.Windows.Forms.ListView tableauDetailsEquipe;
         private System.Windows.Forms.ColumnHeader pseudoTableauDetailsEquipe;
@@ -222,5 +219,9 @@ namespace AppBrestGaming
         private System.Windows.Forms.ColumnHeader roleTableauDetailsEquipe;
         private System.Windows.Forms.ColumnHeader paystableauDetailsEquipe;
         private System.Windows.Forms.Button quitterDetailsEquipe;
+        private System.Windows.Forms.GroupBox headerDetailsEquipe;
+        private System.Windows.Forms.TextBox nomEquipe;
+        private System.Windows.Forms.TextBox siteWebEquipe;
+        private System.Windows.Forms.TextBox idEquipe;
     }
 }
