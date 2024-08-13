@@ -9,169 +9,227 @@ namespace AppBrestGaming.Modele
 {
     public class JeuDAO
     {
-        MySqlConnection maConnexion = ConnexionBddDAO.GetInstance();
-        public List<Jeu> GetListe()
-        {
-            List<Jeu> listeJeux = new List<Jeu>();
-            try
-            {
-                Jeu jeuToAdd = null;
-                // Exécution de la requête SQL
-                string requeteSql = "SELECT * FROM jeu;";
-                if (maConnexion != null)
-                {
-                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
-                    using (MySqlDataReader reader = commande.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            int idJeu = reader.GetInt32("IDJEU");
-                            string nomJeu = reader.GetString("NOMJEU");
-                            string genreJeu = reader.GetString("GENRE");
-                            string editeurJeu = reader.GetString("EDITEUR");
-                            string logoImage = reader.GetString("LOGOIMAGE");
-                            jeuToAdd = new Jeu(idJeu, nomJeu, genreJeu,editeurJeu,logoImage, null);
-                            listeJeux.Add(jeuToAdd);
-                        }
-                    }
-                }
-                foreach(Jeu jeuPlat in listeJeux)
-                {
-                    jeuPlat.ListePlateformes = GetListeFromCompatible(jeuPlat.IdJeu);
-                }
-                return listeJeux;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return null;
-            }
-        }
-        private List<Plateforme> GetListeFromCompatible(int idJeu) // utiliser pour les recherches des équipes par ID et nom
-        {
-            List<Plateforme> listePlateformes = new List<Plateforme>();
-            try
-            {
-                Plateforme plateformeToList = null;
-                // Exécution de la requête SQL
-                string requeteSql = $"SELECT * FROM compatible INNER JOIN plateforme ON compatible.IDPLATEFORME = plateforme.IDPLATEFORME WHERE IDJEU = {idJeu};";
-                if (maConnexion != null)
-                {
-                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
-                    using (MySqlDataReader reader = commande.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            int idPlateforme = reader.GetInt32("IDPLATEFORME");
-                            string nomPlateforme = reader.GetString("NOMPLATEFORME");
-                            plateformeToList = new Plateforme(idPlateforme, nomPlateforme);
-                            listePlateformes.Add(plateformeToList);
-                        }
+        
+        private MySqlConnection maConnexion;
 
-                    }
-                }
-                return listePlateformes;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return null;
-        }
         public Jeu GetById(int id)
         {
+            Jeu resJeu = null;
+            PlateformeDAO plateformeDAO = new PlateformeDAO();
             try
             {
-                Jeu jeuFound = null;
                 // Exécution de la requête SQL
-                string requeteSql = $"SELECT * FROM jeu WHERE IDJEU = {id};";
+                string requeteSql = "SELECT idjeu, nomjeu, logoimage, genre, editeur ";
+                requeteSql += " FROM jeu WHERE idjeu = " + id + "; ";
+
+                maConnexion = ConnexionBddDAO.GetInstance();
                 if (maConnexion != null)
                 {
                     MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
+                    // Exécution de la commande et lecture des résultats
                     using (MySqlDataReader reader = commande.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            int idJeu = reader.GetInt32("IDJEU");
-                            string nomJeu = reader.GetString("NOMJEU");
-                            string genreJeu = reader.GetString("GENRE");
-                            string editeurJeu = reader.GetString("EDITEUR");
-                            string logoImage = reader.GetString("LOGOIMAGE");
-                            List<Plateforme> listePlatforme = new List<Plateforme>();
-                            jeuFound = new Jeu(idJeu,nomJeu,genreJeu,editeurJeu,logoImage, listePlatforme);
+                            int idjeu = reader.GetInt32("idjeu");
+                            string nomjeu = reader.GetString("nomjeu");
+                            string logoimage = reader.GetString("logoimage");
+                            string genre = reader.GetString("genre");
+                            string editeur = reader.GetString("editeur");
+                            resJeu = new Jeu(idjeu, nomjeu, genre, editeur, logoimage, null);
                         }
-
                     }
-                    jeuFound.ListePlateformes = GetListeFromCompatible(jeuFound.IdJeu);
+                    if (plateformeDAO != null)
+                    {
+                        List<Plateforme> listePlateformes = plateformeDAO.GetListeFromJeu(resJeu.Id);
+                        resJeu.ListePlateformes = new List<string>();
+                        foreach (Plateforme plateforme in listePlateformes)
+                        {
+                            resJeu.ListePlateformes.Add(plateforme.NomPlateforme);
+                        }
+                    }
+                    return resJeu;
                 }
-                return jeuFound;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
             }
-            return null;
+            return resJeu;
         }
+
+
+        public List<Jeu> GetListe()
+        {
+            List<Jeu> resListe = null;
+            PlateformeDAO plateformeDAO = new PlateformeDAO();
+            try
+            {
+                // Exécution de la requête SQL
+                string requeteSql = "SELECT idjeu, nomjeu, logoimage, genre, editeur FROM jeu";
+
+                maConnexion = ConnexionBddDAO.GetInstance();
+                if (maConnexion != null)
+                {
+                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
+                    // Exécution de la commande et lecture des résultats
+                    using (MySqlDataReader reader = commande.ExecuteReader())
+                    {
+                        resListe = new List<Jeu>();
+                        while (reader.Read())
+                        {
+                            int idjeu = reader.GetInt32("idjeu");
+                            string nomjeu = reader.GetString("nomjeu");
+                            string logoimage = reader.GetString("logoimage");
+                            string genre = reader.GetString("genre");
+                            string editeur = reader.GetString("editeur");
+                            Jeu nouveauJeu = new Jeu(idjeu, nomjeu, genre, editeur, logoimage, null);
+                            resListe.Add(nouveauJeu);
+                        } 
+                    }
+                    if (plateformeDAO != null)
+                    {
+                        foreach (Jeu jeu in resListe)
+                        {
+                            List<Plateforme> listePlateformes = plateformeDAO.GetListeFromJeu(jeu.Id);
+                            jeu.ListePlateformes = new List<string>();
+                            foreach (Plateforme plateforme in listePlateformes)
+                            {
+                                jeu.ListePlateformes.Add(plateforme.NomPlateforme);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
+            }
+            return resListe;
+        }
+
         public bool Ajout(Jeu jeuAjout)
         {
             try
             {
-                string requestSql = $"INSERT INTO jeu (IDJEU, NOMJEU,GENRE, EDITEUR, LOGOIMAGE) VALUES ({jeuAjout.IdJeu}, '{jeuAjout.Nom}', '{jeuAjout.Genre}','{jeuAjout.Editeur}','{jeuAjout.LogoImage}');";
+                // Exécution de la requête SQL
+                string requeteSql = "INSERT INTO jeu (nomjeu, logoimage, genre, editeur)";
+                requeteSql += $"VALUES ('{jeuAjout.Nom}', '{jeuAjout.LogoImage}', ";
+                requeteSql += $" '{jeuAjout.Genre}', '{jeuAjout.Editeur}'); ";
+
+                maConnexion = ConnexionBddDAO.GetInstance();
                 if (maConnexion != null)
                 {
-                    MySqlCommand commande = new MySqlCommand(requestSql, maConnexion);
+                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
                     int lignesAffectees = commande.ExecuteNonQuery();
                     if (lignesAffectees == 1)
                     {
                         return true;
                     }
+                    else
+                    {
+                        Console.WriteLine($"Une erreur s'est produite lors de l'insertion. Lignes affectées : {lignesAffectees}");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
             }
             return false;
         }
+
+        public bool AjoutPlateformesJeu(int idJeu, List<Plateforme> listePlateformes)
+        {
+            bool resultat = true;
+            try
+            {
+                if(listePlateformes != null)
+                {
+                    foreach (Plateforme plateforme in listePlateformes)
+                    {
+                        // Exécution de la requête SQL
+                        string requeteSql = "INSERT INTO compatible (idjeu, idplateforme)";
+                        requeteSql += $"VALUES ({idJeu}, {plateforme.Id}); ";
+
+                        maConnexion = ConnexionBddDAO.GetInstance();
+                        if (maConnexion != null)
+                        {
+                            MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
+                            int lignesAffectees = commande.ExecuteNonQuery();
+                            if (lignesAffectees != 1)
+                            {
+                                Console.WriteLine($"Une erreur s'est produite lors de l'insertion. Lignes affectées : {lignesAffectees}");
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
+                return false;
+            }
+            return resultat;
+        }
+
+        public bool Suppression(int idJeu)
+        {
+            try
+            {
+                // Exécution de la requête SQL
+                string requeteSql = $"DELETE FROM jeu WHERE idjeu = {idJeu};";
+
+                maConnexion = ConnexionBddDAO.GetInstance();
+                if (maConnexion != null)
+                {
+                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
+                    int lignesAffectees = commande.ExecuteNonQuery();
+                    if (lignesAffectees == 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Une erreur s'est produite lors de la suppression. Lignes affectées : {lignesAffectees}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
+            }
+            return false;
+        }
+
         public bool Modification(int idJeu, Jeu jeuModif)
         {
             try
             {
-                string requestSql = $"UPDATE jeu SET IDJEU = '{idJeu}', NOMJEU = '{jeuModif.Nom}', GENRE = '{jeuModif.Genre}', EDITEUR = '{jeuModif.Editeur}', LOGOIMAGE = '{jeuModif.LogoImage}' WHERE IDJEU = '{idJeu}';";
+                // Exécution de la requête SQL
+                string requeteSql = $"UPDATE jeu SET nomjeu = '{jeuModif.Nom}',  logoimage = '{jeuModif.LogoImage}', ";
+                requeteSql += $" genre = '{jeuModif.Genre}',  editeur = '{jeuModif.Editeur}' ";
+                requeteSql += $" WHERE idjeu = {idJeu};";
+
+                maConnexion = ConnexionBddDAO.GetInstance();
                 if (maConnexion != null)
                 {
-                    MySqlCommand commande = new MySqlCommand(requestSql, maConnexion);
+                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
                     int lignesAffectees = commande.ExecuteNonQuery();
                     if (lignesAffectees == 1)
                     {
                         return true;
                     }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return false;
-        }
-        public bool Supression(int idJeu)
-        {
-            try
-            {
-                string requestSql = $"DELETE FROM jeu WHERE IDJEU = '{idJeu}';";
-                if (maConnexion != null)
-                {
-                    MySqlCommand commande = new MySqlCommand(requestSql, maConnexion);
-                    int lignesAffectees = commande.ExecuteNonQuery();
-                    if (lignesAffectees == 1)
+                    else
                     {
-                        return true;
+                        Console.WriteLine($"Une erreur s'est produite lors de la modification. Lignes affectées : {lignesAffectees}");
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
             }
             return false;
         }

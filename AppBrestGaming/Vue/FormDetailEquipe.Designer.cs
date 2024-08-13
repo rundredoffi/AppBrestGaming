@@ -1,5 +1,5 @@
 ﻿
-namespace AppBrestGaming
+namespace AppBrestGaming.Vue
 {
     partial class FormDetailEquipe
     {
@@ -29,199 +29,192 @@ namespace AppBrestGaming
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDetailEquipe));
-            this.voirPlusDetailsEquipes = new System.Windows.Forms.Button();
-            this.modifierDetailsEquipe = new System.Windows.Forms.Button();
-            this.supprimerDetailsEquipe = new System.Windows.Forms.Button();
-            this.texteNumeroEquipeDetailsEquipe = new System.Windows.Forms.Label();
-            this.logoDetailsEquipe = new System.Windows.Forms.PictureBox();
-            this.tableauDetailsEquipe = new System.Windows.Forms.ListView();
-            this.pseudoTableauDetailsEquipe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.nomTableauDetailsEquipe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.roleTableauDetailsEquipe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.paystableauDetailsEquipe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.quitterDetailsEquipe = new System.Windows.Forms.Button();
-            this.headerDetailsEquipe = new System.Windows.Forms.GroupBox();
-            this.nomEquipe = new System.Windows.Forms.TextBox();
-            this.siteWebEquipe = new System.Windows.Forms.TextBox();
-            this.idEquipe = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.logoDetailsEquipe)).BeginInit();
-            this.headerDetailsEquipe.SuspendLayout();
+            this.buttonOK = new System.Windows.Forms.Button();
+            this.imageEquipe = new System.Windows.Forms.PictureBox();
+            this.labelId = new System.Windows.Forms.Label();
+            this.textBoxId = new System.Windows.Forms.TextBox();
+            this.labelNom = new System.Windows.Forms.Label();
+            this.textBoxNom = new System.Windows.Forms.TextBox();
+            this.labelSiteWeb = new System.Windows.Forms.Label();
+            this.textBoxSiteWeb = new System.Windows.Forms.TextBox();
+            this.buttonValider = new System.Windows.Forms.Button();
+            this.buttonAnnuler = new System.Windows.Forms.Button();
+            this.labelImage = new System.Windows.Forms.Label();
+            this.textBoxImage = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.imageEquipe)).BeginInit();
             this.SuspendLayout();
             // 
-            // voirPlusDetailsEquipes
+            // buttonOK
             // 
-            this.voirPlusDetailsEquipes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.voirPlusDetailsEquipes.ForeColor = System.Drawing.Color.White;
-            this.voirPlusDetailsEquipes.Location = new System.Drawing.Point(345, 345);
-            this.voirPlusDetailsEquipes.Name = "voirPlusDetailsEquipes";
-            this.voirPlusDetailsEquipes.Size = new System.Drawing.Size(128, 41);
-            this.voirPlusDetailsEquipes.TabIndex = 0;
-            this.voirPlusDetailsEquipes.Text = "Voir Plus";
-            this.voirPlusDetailsEquipes.UseVisualStyleBackColor = false;
+            this.buttonOK.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOK.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonOK.Location = new System.Drawing.Point(643, 321);
+            this.buttonOK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(107, 46);
+            this.buttonOK.TabIndex = 3;
+            this.buttonOK.Text = "OK";
+            this.buttonOK.UseVisualStyleBackColor = false;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
-            // modifierDetailsEquipe
+            // imageEquipe
             // 
-            this.modifierDetailsEquipe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.modifierDetailsEquipe.ForeColor = System.Drawing.Color.White;
-            this.modifierDetailsEquipe.Location = new System.Drawing.Point(234, 392);
-            this.modifierDetailsEquipe.Name = "modifierDetailsEquipe";
-            this.modifierDetailsEquipe.Size = new System.Drawing.Size(126, 41);
-            this.modifierDetailsEquipe.TabIndex = 1;
-            this.modifierDetailsEquipe.Text = "Modifier";
-            this.modifierDetailsEquipe.UseVisualStyleBackColor = false;
+            this.imageEquipe.Location = new System.Drawing.Point(580, 46);
+            this.imageEquipe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.imageEquipe.Name = "imageEquipe";
+            this.imageEquipe.Size = new System.Drawing.Size(145, 138);
+            this.imageEquipe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imageEquipe.TabIndex = 6;
+            this.imageEquipe.TabStop = false;
             // 
-            // supprimerDetailsEquipe
+            // labelId
             // 
-            this.supprimerDetailsEquipe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.supprimerDetailsEquipe.ForeColor = System.Drawing.Color.White;
-            this.supprimerDetailsEquipe.Location = new System.Drawing.Point(458, 392);
-            this.supprimerDetailsEquipe.Name = "supprimerDetailsEquipe";
-            this.supprimerDetailsEquipe.Size = new System.Drawing.Size(126, 41);
-            this.supprimerDetailsEquipe.TabIndex = 2;
-            this.supprimerDetailsEquipe.Text = "Supprimer";
-            this.supprimerDetailsEquipe.UseVisualStyleBackColor = false;
+            this.labelId.AutoSize = true;
+            this.labelId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelId.Location = new System.Drawing.Point(105, 55);
+            this.labelId.Name = "labelId";
+            this.labelId.Size = new System.Drawing.Size(28, 25);
+            this.labelId.TabIndex = 4;
+            this.labelId.Text = "Id";
             // 
-            // texteNumeroEquipeDetailsEquipe
+            // textBoxId
             // 
-            this.texteNumeroEquipeDetailsEquipe.AutoSize = true;
-            this.texteNumeroEquipeDetailsEquipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.texteNumeroEquipeDetailsEquipe.Location = new System.Drawing.Point(44, 46);
-            this.texteNumeroEquipeDetailsEquipe.Name = "texteNumeroEquipeDetailsEquipe";
-            this.texteNumeroEquipeDetailsEquipe.Size = new System.Drawing.Size(74, 16);
-            this.texteNumeroEquipeDetailsEquipe.TabIndex = 5;
-            this.texteNumeroEquipeDetailsEquipe.Text = "Equipe n°";
+            this.textBoxId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxId.Location = new System.Drawing.Point(155, 46);
+            this.textBoxId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxId.Name = "textBoxId";
+            this.textBoxId.Size = new System.Drawing.Size(375, 34);
+            this.textBoxId.TabIndex = 5;
             // 
-            // logoDetailsEquipe
+            // labelNom
             // 
-            this.logoDetailsEquipe.Image = ((System.Drawing.Image)(resources.GetObject("logoDetailsEquipe.Image")));
-            this.logoDetailsEquipe.Location = new System.Drawing.Point(593, 3);
-            this.logoDetailsEquipe.Name = "logoDetailsEquipe";
-            this.logoDetailsEquipe.Size = new System.Drawing.Size(195, 214);
-            this.logoDetailsEquipe.TabIndex = 8;
-            this.logoDetailsEquipe.TabStop = false;
+            this.labelNom.AutoSize = true;
+            this.labelNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNom.Location = new System.Drawing.Point(80, 124);
+            this.labelNom.Name = "labelNom";
+            this.labelNom.Size = new System.Drawing.Size(53, 25);
+            this.labelNom.TabIndex = 8;
+            this.labelNom.Text = "Nom";
             // 
-            // tableauDetailsEquipe
+            // textBoxNom
             // 
-            this.tableauDetailsEquipe.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.pseudoTableauDetailsEquipe,
-            this.nomTableauDetailsEquipe,
-            this.roleTableauDetailsEquipe,
-            this.paystableauDetailsEquipe});
-            this.tableauDetailsEquipe.FullRowSelect = true;
-            this.tableauDetailsEquipe.HideSelection = false;
-            this.tableauDetailsEquipe.Location = new System.Drawing.Point(110, 160);
-            this.tableauDetailsEquipe.Name = "tableauDetailsEquipe";
-            this.tableauDetailsEquipe.Size = new System.Drawing.Size(421, 179);
-            this.tableauDetailsEquipe.TabIndex = 9;
-            this.tableauDetailsEquipe.UseCompatibleStateImageBehavior = false;
-            this.tableauDetailsEquipe.View = System.Windows.Forms.View.Details;
+            this.textBoxNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNom.Location = new System.Drawing.Point(155, 114);
+            this.textBoxNom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxNom.Name = "textBoxNom";
+            this.textBoxNom.Size = new System.Drawing.Size(375, 34);
+            this.textBoxNom.TabIndex = 9;
             // 
-            // pseudoTableauDetailsEquipe
+            // labelSiteWeb
             // 
-            this.pseudoTableauDetailsEquipe.Text = "Pseudo";
-            this.pseudoTableauDetailsEquipe.Width = 100;
+            this.labelSiteWeb.AutoSize = true;
+            this.labelSiteWeb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSiteWeb.Location = new System.Drawing.Point(37, 188);
+            this.labelSiteWeb.Name = "labelSiteWeb";
+            this.labelSiteWeb.Size = new System.Drawing.Size(93, 25);
+            this.labelSiteWeb.TabIndex = 10;
+            this.labelSiteWeb.Text = "Site Web";
             // 
-            // nomTableauDetailsEquipe
+            // textBoxSiteWeb
             // 
-            this.nomTableauDetailsEquipe.Text = "Nom";
-            this.nomTableauDetailsEquipe.Width = 100;
+            this.textBoxSiteWeb.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSiteWeb.Location = new System.Drawing.Point(155, 178);
+            this.textBoxSiteWeb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxSiteWeb.Name = "textBoxSiteWeb";
+            this.textBoxSiteWeb.Size = new System.Drawing.Size(375, 34);
+            this.textBoxSiteWeb.TabIndex = 11;
             // 
-            // roleTableauDetailsEquipe
+            // buttonValider
             // 
-            this.roleTableauDetailsEquipe.Text = "Rôle";
-            this.roleTableauDetailsEquipe.Width = 100;
+            this.buttonValider.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonValider.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonValider.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonValider.Location = new System.Drawing.Point(580, 350);
+            this.buttonValider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonValider.Name = "buttonValider";
+            this.buttonValider.Size = new System.Drawing.Size(140, 49);
+            this.buttonValider.TabIndex = 12;
+            this.buttonValider.Text = "Valider";
+            this.buttonValider.UseVisualStyleBackColor = false;
+            this.buttonValider.Click += new System.EventHandler(this.buttonValider_Click);
             // 
-            // paystableauDetailsEquipe
+            // buttonAnnuler
             // 
-            this.paystableauDetailsEquipe.Text = "Pays";
-            this.paystableauDetailsEquipe.Width = 100;
+            this.buttonAnnuler.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAnnuler.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonAnnuler.Location = new System.Drawing.Point(580, 279);
+            this.buttonAnnuler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonAnnuler.Name = "buttonAnnuler";
+            this.buttonAnnuler.Size = new System.Drawing.Size(140, 49);
+            this.buttonAnnuler.TabIndex = 13;
+            this.buttonAnnuler.Text = "Annuler";
+            this.buttonAnnuler.UseVisualStyleBackColor = false;
+            this.buttonAnnuler.Click += new System.EventHandler(this.buttonAnnuler_Click);
             // 
-            // quitterDetailsEquipe
+            // labelImage
             // 
-            this.quitterDetailsEquipe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.quitterDetailsEquipe.ForeColor = System.Drawing.Color.White;
-            this.quitterDetailsEquipe.Location = new System.Drawing.Point(12, 12);
-            this.quitterDetailsEquipe.Name = "quitterDetailsEquipe";
-            this.quitterDetailsEquipe.Size = new System.Drawing.Size(126, 41);
-            this.quitterDetailsEquipe.TabIndex = 10;
-            this.quitterDetailsEquipe.Text = "Retour";
-            this.quitterDetailsEquipe.UseVisualStyleBackColor = false;
-            this.quitterDetailsEquipe.Click += new System.EventHandler(this.quitterDetailsEquipe_Click);
+            this.labelImage.AutoSize = true;
+            this.labelImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelImage.Location = new System.Drawing.Point(64, 252);
+            this.labelImage.Name = "labelImage";
+            this.labelImage.Size = new System.Drawing.Size(66, 25);
+            this.labelImage.TabIndex = 14;
+            this.labelImage.Text = "Image";
             // 
-            // headerDetailsEquipe
+            // textBoxImage
             // 
-            this.headerDetailsEquipe.Controls.Add(this.idEquipe);
-            this.headerDetailsEquipe.Controls.Add(this.nomEquipe);
-            this.headerDetailsEquipe.Controls.Add(this.siteWebEquipe);
-            this.headerDetailsEquipe.Location = new System.Drawing.Point(182, 12);
-            this.headerDetailsEquipe.Name = "headerDetailsEquipe";
-            this.headerDetailsEquipe.Size = new System.Drawing.Size(349, 142);
-            this.headerDetailsEquipe.TabIndex = 15;
-            this.headerDetailsEquipe.TabStop = false;
-            this.headerDetailsEquipe.Text = "groupBox1";
-            // 
-            // nomEquipe
-            // 
-            this.nomEquipe.Location = new System.Drawing.Point(183, 47);
-            this.nomEquipe.Name = "nomEquipe";
-            this.nomEquipe.Size = new System.Drawing.Size(158, 20);
-            this.nomEquipe.TabIndex = 6;
-            // 
-            // siteWebEquipe
-            // 
-            this.siteWebEquipe.Location = new System.Drawing.Point(183, 73);
-            this.siteWebEquipe.Name = "siteWebEquipe";
-            this.siteWebEquipe.Size = new System.Drawing.Size(158, 20);
-            this.siteWebEquipe.TabIndex = 7;
-            // 
-            // idEquipe
-            // 
-            this.idEquipe.Location = new System.Drawing.Point(183, 21);
-            this.idEquipe.Name = "idEquipe";
-            this.idEquipe.Size = new System.Drawing.Size(158, 20);
-            this.idEquipe.TabIndex = 8;
+            this.textBoxImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxImage.Location = new System.Drawing.Point(155, 242);
+            this.textBoxImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxImage.Name = "textBoxImage";
+            this.textBoxImage.Size = new System.Drawing.Size(375, 34);
+            this.textBoxImage.TabIndex = 15;
             // 
             // FormDetailEquipe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(787, 461);
             this.ControlBox = false;
-            this.Controls.Add(this.quitterDetailsEquipe);
-            this.Controls.Add(this.logoDetailsEquipe);
-            this.Controls.Add(this.supprimerDetailsEquipe);
-            this.Controls.Add(this.modifierDetailsEquipe);
-            this.Controls.Add(this.voirPlusDetailsEquipes);
-            this.Controls.Add(this.tableauDetailsEquipe);
-            this.Controls.Add(this.headerDetailsEquipe);
+            this.Controls.Add(this.textBoxImage);
+            this.Controls.Add(this.labelImage);
+            this.Controls.Add(this.buttonAnnuler);
+            this.Controls.Add(this.buttonValider);
+            this.Controls.Add(this.textBoxSiteWeb);
+            this.Controls.Add(this.labelSiteWeb);
+            this.Controls.Add(this.textBoxNom);
+            this.Controls.Add(this.imageEquipe);
+            this.Controls.Add(this.labelNom);
+            this.Controls.Add(this.buttonOK);
+            this.Controls.Add(this.textBoxId);
+            this.Controls.Add(this.labelId);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormDetailEquipe";
-            this.Text = "Détails équipe";
-            this.Load += new System.EventHandler(this.detailsEquipeChargement);
-            ((System.ComponentModel.ISupportInitialize)(this.logoDetailsEquipe)).EndInit();
-            this.headerDetailsEquipe.ResumeLayout(false);
-            this.headerDetailsEquipe.PerformLayout();
+            this.Text = "Équipe";
+            this.Load += new System.EventHandler(this.FormDetailEquipe_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.imageEquipe)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button voirPlusDetailsEquipes;
-        private System.Windows.Forms.Button modifierDetailsEquipe;
-        private System.Windows.Forms.Button supprimerDetailsEquipe;
-        private System.Windows.Forms.Label texteNumeroEquipeDetailsEquipe;
-        private System.Windows.Forms.PictureBox logoDetailsEquipe;
-        private System.Windows.Forms.ListView tableauDetailsEquipe;
-        private System.Windows.Forms.ColumnHeader pseudoTableauDetailsEquipe;
-        private System.Windows.Forms.ColumnHeader nomTableauDetailsEquipe;
-        private System.Windows.Forms.ColumnHeader roleTableauDetailsEquipe;
-        private System.Windows.Forms.ColumnHeader paystableauDetailsEquipe;
-        private System.Windows.Forms.Button quitterDetailsEquipe;
-        private System.Windows.Forms.GroupBox headerDetailsEquipe;
-        private System.Windows.Forms.TextBox nomEquipe;
-        private System.Windows.Forms.TextBox siteWebEquipe;
-        private System.Windows.Forms.TextBox idEquipe;
+        private System.Windows.Forms.Button buttonOK;
+        private System.Windows.Forms.PictureBox imageEquipe;
+        private System.Windows.Forms.Label labelId;
+        private System.Windows.Forms.TextBox textBoxId;
+        private System.Windows.Forms.Label labelNom;
+        private System.Windows.Forms.TextBox textBoxNom;
+        private System.Windows.Forms.Label labelSiteWeb;
+        private System.Windows.Forms.TextBox textBoxSiteWeb;
+        private System.Windows.Forms.Button buttonValider;
+        private System.Windows.Forms.Button buttonAnnuler;
+        private System.Windows.Forms.Label labelImage;
+        private System.Windows.Forms.TextBox textBoxImage;
     }
 }

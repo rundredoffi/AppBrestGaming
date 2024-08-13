@@ -1,176 +1,188 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
+using MySql.Data.MySqlClient;
 
 namespace AppBrestGaming.Modele
 {
     public class EquipeDAO
     {
-        private List<Equipe> listeEquipes;
-        // Connexion SQL :
-        MySqlConnection maConnexion = ConnexionBddDAO.GetInstance();
-        public List<Modele.Equipe> GetListeEquipes()
-        {
-            listeEquipes = new List<Modele.Equipe>();
-            try
-            {
-                // Exécution de la requête SQL
-                string requeteSql = "SELECT * FROM equipe;";
-                if (maConnexion != null)
-                {
-                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
-                    using (MySqlDataReader reader = commande.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            int equipeID = reader.GetInt32("IDEQUIPE");
-                            string nomEquipe = reader.GetString("NOMEQUIPE");
-                            string siteWeb = reader.GetString("SITEWEB");
-                            string logo = reader.GetString("LOGOEQUIPE");
-                            Equipe EquipeToAdd = new Equipe(equipeID, nomEquipe, siteWeb, logo,null);
-                            listeEquipes.Add(EquipeToAdd);
-                        }
+        private MySqlConnection maConnexion;
 
-                    }
-                    foreach (Modele.Equipe equipe in listeEquipes)
-                    {
-                        equipe.ListeJoueurs = GetListeFromEquipe(equipe.Id);
-                    }
-                    return listeEquipes;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return null;
-        }
-        private List<Personne> GetListeFromEquipe(int idEquipe) // utiliser pour les recherches des équipes par ID et nom
+        public Equipe GetById(int id)
         {
-            List<Personne> listePlayers = new List<Personne>();
+            Equipe resEquipe = null;
             try
             {
-                Personne personneToList = null;
                 // Exécution de la requête SQL
-                string requeteSql = $"SELECT * FROM personne WHERE IDEQUIPE = {idEquipe};";
-                if (maConnexion != null)
-                {
-                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
-                    using (MySqlDataReader reader = commande.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            int playerID = reader.GetInt32("IDPERSONNE");
-                            int numChambre = reader.GetInt32("NUMEROCHAMBRE");
-                            int idEquipeJoueur = reader.GetInt32("IDEQUIPE");
-                            string pseudo = reader.GetString("PSEUDO");
-                            string nomjoueur = reader.GetString("NOMJOUEUR");
-                            string pays = reader.GetString("PAYS");
-                            string role = reader.GetString("ROLE");
-                            personneToList = new Personne(playerID, numChambre, idEquipeJoueur, pseudo, nomjoueur, pays, role);
-                            listePlayers.Add(personneToList);
-                        }
+                string requeteSql = "SELECT idequipe, nomequipe, siteweb, logoequipe";
+                requeteSql += " FROM equipe WHERE idequipe = " + id + "; ";
 
-                    }
-                }
-                return listePlayers;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return null;
-        }
-        public Equipe GetEquipeById(int id) // Renvoie les informations avec une liste de joueurs (objet Personne)
-        {
-            try
-            {
-                Equipe equipeResultat = null;
-                // Exécution de la requête SQL
-                string requeteSql = $"SELECT * FROM equipe WHERE IDEQUIPE = {id};";
-                if (maConnexion  != null)
-                {
-                    List<Personne> listePlayers = new List<Personne>();
-                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
-                    using (MySqlDataReader reader = commande.ExecuteReader())
-                    {
-                        
-                        while (reader.Read())
-                        {
-                            int idEquipe = reader.GetInt32("IDEQUIPE");
-                            string nomEquipe = reader.GetString("NOMEQUIPE");
-                            string siteEquipe = reader.GetString("SITEWEB");
-                            string logoEquipe = reader.GetString("LOGOEQUIPE");
-                            equipeResultat = new Equipe(idEquipe, nomEquipe, siteEquipe, logoEquipe, listePlayers);
-                        }
-                    }
-                    listePlayers = GetListeFromEquipe(equipeResultat.Id);
-                    equipeResultat.ListeJoueurs = listePlayers;
-                }
-                return equipeResultat;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return null;
-        }
-        public Equipe GetEquipeByNom(string nomEquipe) // Renvoie les informations avec une liste de joueurs (objet Personne)
-        {
-            try
-            {
-                Equipe equipeResultat = null;
-                // Exécution de la requête SQL
-                string requeteSql = $"SELECT * FROM equipe WHERE NOMEQUIPE = '{nomEquipe}';";
+                maConnexion = ConnexionBddDAO.GetInstance();
                 if (maConnexion != null)
                 {
-                    List<Personne> listePlayers = new List<Personne>();
                     MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
+                    // Exécution de la commande et lecture des résultats
                     using (MySqlDataReader reader = commande.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            int idEquipe = reader.GetInt32("IDEQUIPE");
-                            string nomTeam = reader.GetString("NOMEQUIPE");
-                            string siteEquipe = reader.GetString("SITEWEB");
-                            string logoEquipe = reader.GetString("LOGOEQUIPE");
-                            equipeResultat = new Equipe(idEquipe, nomTeam, siteEquipe, logoEquipe, listePlayers);
+                            int idequipe = reader.GetInt32("idequipe");
+                            string nomequipe = reader.GetString("nomequipe");
+                            string siteweb = reader.GetString("siteweb");
+                            string logoequipe = reader.GetString("logoequipe");
+
+                            resEquipe = new Equipe(idequipe, nomequipe, siteweb, logoequipe, null);
                         }
                     }
-                    listePlayers = GetListeFromEquipe(equipeResultat.Id);
-                    equipeResultat.ListeJoueurs = listePlayers;
+                    PersonneDAO persDAO = new PersonneDAO();
+                    List<Personne> personnesEquipe = persDAO.GetListeFromEquipe(id);
+                    resEquipe.ListeJoueurs = personnesEquipe;
+                    return resEquipe;
                 }
-                return equipeResultat;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
             }
-            return null;
+            return resEquipe;
         }
-        public bool AjoutEquipe(Equipe nouvelleEquipe)
+
+        public List<Equipe> GetListe()
+        {
+            List<Equipe> resListe = null;
+            try
+            {
+                // Exécution de la requête SQL
+                string requeteSql = "SELECT idequipe, nomequipe, siteweb, logoequipe ";
+                requeteSql += " FROM equipe";
+
+                maConnexion = ConnexionBddDAO.GetInstance();
+                if (maConnexion != null)
+                {
+                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
+                    // Exécution de la commande et lecture des résultats
+                    using (MySqlDataReader reader = commande.ExecuteReader())
+                    {
+                        resListe = new List<Equipe>();
+                        while (reader.Read())
+                        {
+                            int idequipe = reader.GetInt32("idequipe");
+                            string nomequipe = reader.GetString("nomequipe");
+                            string siteweb = reader.GetString("siteweb");
+                            string logoequipe = reader.GetString("logoequipe");
+                            Equipe nouvelleEquipe = new Equipe(idequipe, nomequipe, siteweb, logoequipe, null);
+                            resListe.Add(nouvelleEquipe);
+                        }
+                    }
+                    PersonneDAO persDAO = new PersonneDAO();
+                    foreach (Equipe eq in resListe)
+                    {
+                        List<Personne> personnesEquipe = persDAO.GetListeFromEquipe(eq.Id);
+                        eq.ListeJoueurs = personnesEquipe;
+                    }
+                    return resListe;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
+            }
+            return resListe;
+        }
+
+        public bool Ajout(Equipe equipeAjout)
         {
             try
             {
-                string requestSql = $"INSERT INTO equipe (NOMEQUIPE, SITEWEB, LOGOEQUIPE) VALUES ('{nouvelleEquipe.Nom}', '{nouvelleEquipe.SiteWeb}', 'null'); ";
+                // Exécution de la requête SQL
+                string requeteSql = "INSERT INTO equipe (NOMEQUIPE, SITEWEB, LOGOEQUIPE)";
+                requeteSql += $"VALUES ('{equipeAjout.Nom}', ";
+                requeteSql += $"'{equipeAjout.SiteWeb}', '{equipeAjout.ImageEquipe}'); ";
+
+                maConnexion = ConnexionBddDAO.GetInstance();
                 if (maConnexion != null)
                 {
-                    MySqlCommand commande = new MySqlCommand(requestSql, maConnexion);
-                    maConnexion.Open();
+                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
                     int lignesAffectees = commande.ExecuteNonQuery();
+                    // Vérification du nombre de lignes affectées par la commande (doit être 1 si l'insertion est réussie)
                     if (lignesAffectees == 1)
                     {
                         return true;
                     }
+                    else
+                    {
+                        Console.WriteLine($"Une erreur s'est produite lors de l'insertion. Lignes affectées : {lignesAffectees}");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
+            }
+            return false;
+        }
+
+        public bool Suppression(int idEquipe)
+        {
+            try
+            {
+                // Exécution de la requête SQL
+                string requeteSql = $"DELETE FROM equipe WHERE idequipe = {idEquipe};";
+
+                maConnexion = ConnexionBddDAO.GetInstance();
+                if (maConnexion != null)
+                {
+                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
+                    int lignesAffectees = commande.ExecuteNonQuery();
+                    // Vérification du nombre de lignes affectées par la commande (doit être 1 si la suppression est réussie)
+                    if (lignesAffectees == 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Une erreur s'est produite lors de la suppression. Lignes affectées : {lignesAffectees}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
+            }
+            return false;
+        }
+
+        public bool Modification(int idEquipe, Equipe equipeModif)
+        {
+            try
+            {
+                // Exécution de la requête SQL
+                string requeteSql = $"UPDATE equipe SET NOMEQUIPE = '{equipeModif.Nom}', ";
+                requeteSql += $"SITEWEB = '{equipeModif.SiteWeb}', LOGOEQUIPE = '{equipeModif.ImageEquipe}' ";
+                requeteSql += $" WHERE idequipe = {idEquipe};";
+
+                maConnexion = ConnexionBddDAO.GetInstance();
+                if (maConnexion != null)
+                {
+                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
+                    int lignesAffectees = commande.ExecuteNonQuery();
+                    // Vérification du nombre de lignes affectées par la commande (doit être 1 si la modification est réussie)
+                    if (lignesAffectees == 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Une erreur s'est produite lors de la modification. Lignes affectées : {lignesAffectees}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
             }
             return false;
         }

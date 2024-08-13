@@ -7,45 +7,45 @@ using System.Threading.Tasks;
 namespace AppBrestGaming.Modele
 {
     public class Personne
-    { 
-        private int IDPERSONNE;
-        private int numerochambre;
-        private int idequipe;
+    {
+        private int id;
         private string pseudo;
-        private string nomjoueur;
+        private string nomJoueur;
         private string pays;
         private string role;
+        private int idEquipe;
+        private int numChambre;
 
-        public Personne(int iDPERSONNE, int numerochambre, int idequipe, string pseudo,string nomjoueur, string pays, string role)
+        public Personne(int id, string pseudo, string nomJoueur, string pays, string role, int idEquipe, int numChambre)
         {
-            IDPERSONNE1 = iDPERSONNE;
-            this.Numerochambre = numerochambre;
-            this.Idequipe = idequipe;
-            this.Pseudo = pseudo;
-            this.Nomjoueur = nomjoueur;
-            this.Pays = pays;
-            this.Role = role;
+            this.id = id;
+            this.pseudo = pseudo;
+            this.nomJoueur = nomJoueur;
+            this.pays = pays;
+            this.role = role;
+            this.IdEquipe = idEquipe;
+            this.numChambre = numChambre;
         }
 
-        public int IDPERSONNE1 { get => IDPERSONNE; set => IDPERSONNE = value; }
-        public int Numerochambre { get => numerochambre; set => numerochambre = value; }
-        public int Idequipe { get => idequipe; set => idequipe = value; }
-        public string Nomjoueur { get => nomjoueur; set => nomjoueur = value; }
+        public int Id { get => id; set => id = value; }
         public string Pseudo { get => pseudo; set => pseudo = value; }
+        public string NomJoueur { get => nomJoueur; set => nomJoueur = value; }
         public string Pays { get => pays; set => pays = value; }
         public string Role { get => role; set => role = value; }
+        public int NumChambre { get => numChambre; set => numChambre = value; }
+        public int IdEquipe { get => idEquipe; set => idEquipe = value; }
 
         public override string ToString()
         {
-            string seriaisation = "--- personne --- \n";
-            seriaisation += $"Id personne : {this.IDPERSONNE1}\n";
-            seriaisation += $"Numéro chambre : {this.Numerochambre}\n";
-            seriaisation += $"Id Equipe : {this.Idequipe}\n";
-            seriaisation += $"Pseudo : {this.Pseudo}\n";
-            seriaisation += $"nomjoueur : {this.Nomjoueur}\n";
-            seriaisation += $"pays : {this.Pays}\n";
-            seriaisation += $"role : {this.Role}\n";
-            return seriaisation;
+            string serialisation = "--- PERSONNE ---\n";
+            serialisation += $"Id : {this.Id.ToString()}\n";
+            serialisation += $"Pseudo : {this.Pseudo}\n";
+            serialisation += $"Nom joueur : {this.NomJoueur}\n";
+            serialisation += $"Pays : {this.Pays}\n";
+            serialisation += $"Role : {this.Role}\n";
+            serialisation += $"Équipe : {this.IdEquipe}\n";
+            serialisation += $"Numéro chambre : {this.NumChambre.ToString()}\n";
+            return serialisation;
         }
     }
 }

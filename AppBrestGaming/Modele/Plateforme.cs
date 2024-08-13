@@ -8,23 +8,25 @@ namespace AppBrestGaming.Modele
 {
     public class Plateforme
     {
-        private int idPlateforme;
-        private string nomPlateforme;
+        private int id;
+        private String nomPlateforme;
 
-        public Plateforme(int idPlateforme, string nomPlateforme)
+        public Plateforme(int id, string nomPlateforme)
         {
-            this.IdPlateforme = idPlateforme;
+            this.Id = id;
             this.NomPlateforme = nomPlateforme;
         }
 
-        public int IdPlateforme { get => idPlateforme; set => idPlateforme = value; }
+        public int Id { get => id; set => id = value; }
         public string NomPlateforme { get => nomPlateforme; set => nomPlateforme = value; }
+
         public override string ToString()
         {
-            string seriaisation = "--- Platerformes ---\n";
-            seriaisation += $"Identifiant : {this.idPlateforme}\n";
-            seriaisation += $"Nom : {this.nomPlateforme}";    
+            string seriaisation = "--- PLATEFORME ---\n";
+            seriaisation += $"Id : {this.Id.ToString()}\n";
+            seriaisation += $"Nom : {this.NomPlateforme}\n";
             return seriaisation;
         }
+
     }
 }

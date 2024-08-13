@@ -17,18 +17,64 @@ namespace AppBrestGaming.Vue
             InitializeComponent();
         }
 
-        private void equipesAcceuil_Click(object sender, EventArgs e)
+        private void buttonQuitter_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormEquipe formulaireEquipe = new FormEquipe();
-            formulaireEquipe.ShowDialog();
+            Application.Exit();
+        }
+
+        private void buttonEquipes_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // on cache le menu
+            // création d'un nouveau formulaire Equipes : 
+            FormListeEquipes formulaireEquipes = new FormListeEquipes();
+            formulaireEquipes.ShowDialog(); // ouverture du formulaire dans une fenêtre modale
+            // On revient ici lorsque ShowDialog() est terminé, donc quand on ferme le formulaire Equipe
             this.Show();
         }
 
-        private void quitterButton_Click(object sender, EventArgs e)
+        private void FormMenu_Load(object sender, EventArgs e)
         {
-            this.Close();
-            Application.Exit();
+
+        }
+
+        private void buttonAdmin_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // on cache le menu
+            // création d'un nouveau formulaire ListeUsers : 
+            FormListeUsers formulaireUsers = new FormListeUsers();
+            formulaireUsers.ShowDialog(); // ouverture du formulaire dans une fenêtre modale
+            // On revient ici lorsque ShowDialog() est terminé, donc quand on ferme le formulaire Utilisateurs
+            this.Show();
+        }
+
+        private void buttonChambres_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // on cache le menu
+            // création d'un nouveau formulaire Chambres : 
+            FormListeChambres formulaireChambres = new FormListeChambres();
+            formulaireChambres.ShowDialog(); // ouverture du formulaire dans une fenêtre modale
+            // On revient ici lorsque ShowDialog() est terminé, donc quand on ferme le formulaire Chambres
+            this.Show();
+        }
+
+        private void buttonJoueurs_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // on cache le menu
+            // création d'un nouveau formulaire Joueurs : 
+            FormListeJoueurs formulaireJoueurs = new FormListeJoueurs();
+            formulaireJoueurs.ShowDialog(); // ouverture du formulaire dans une fenêtre modale
+            // On revient ici lorsque ShowDialog() est terminé, donc quand on ferme le formulaire Joueurs
+            this.Show();
+        }
+
+        private void buttonJeux_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // on cache le menu
+            // création d'un nouveau formulaire Jeux : 
+            FormListeJeux formulaireJeux = new FormListeJeux();
+            formulaireJeux.ShowDialog(); // ouverture du formulaire dans une fenêtre modale
+            // On revient ici lorsque ShowDialog() est terminé, donc quand on ferme le formulaire Jeux
+            this.Show();
         }
     }
 }

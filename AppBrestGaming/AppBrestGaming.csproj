@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A98EA281-0D32-4379-97B8-2C71011E2BE5}</ProjectGuid>
+    <ProjectGuid>{30A47423-98D6-4B8B-A57D-8233E8B2E562}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>AppBrestGaming</RootNamespace>
     <AssemblyName>AppBrestGaming</AssemblyName>
@@ -48,6 +48,10 @@
     <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
     </Reference>
+    <Reference Include="LibrairieGaming, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Controleur\LibrairieGaming.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -77,9 +81,6 @@
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -98,18 +99,72 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controleur\FichierLog.cs" />
+    <Compile Include="Controleur\ControleurChambre.cs" />
+    <Compile Include="Controleur\ControleurJeu.cs" />
+    <Compile Include="Controleur\ControleurEquipe.cs" />
+    <Compile Include="Controleur\ControleurJoueur.cs" />
+    <Compile Include="Controleur\ControleurUser.cs" />
+    <Compile Include="Modele\Chambre.cs" />
+    <Compile Include="Modele\ChambreDAO.cs" />
+    <Compile Include="Modele\ConnexionBddDAO.cs" />
+    <Compile Include="Modele\Equipe.cs" />
+    <Compile Include="Modele\EquipeDAO.cs" />
+    <Compile Include="Modele\Role.cs" />
+    <Compile Include="Modele\User.cs" />
+    <Compile Include="Modele\UserDAO.cs" />
     <Compile Include="Vue\FormDetailEquipe.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vue\FormDetailEquipe.Designer.cs">
       <DependentUpon>FormDetailEquipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vue\FormEquipe.cs">
+    <Compile Include="Vue\FormDetailJeu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vue\FormEquipe.Designer.cs">
-      <DependentUpon>FormEquipe.cs</DependentUpon>
+    <Compile Include="Vue\FormDetailJeu.Designer.cs">
+      <DependentUpon>FormDetailJeu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\FormDetailJoueur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vue\FormDetailJoueur.Designer.cs">
+      <DependentUpon>FormDetailJoueur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\FormDetailUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vue\FormDetailUser.Designer.cs">
+      <DependentUpon>FormDetailUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\FormListeChambres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vue\FormListeChambres.Designer.cs">
+      <DependentUpon>FormListeChambres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\FormListeEquipes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vue\FormListeEquipes.Designer.cs">
+      <DependentUpon>FormListeEquipes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\FormListeJeux.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vue\FormListeJeux.Designer.cs">
+      <DependentUpon>FormListeJeux.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\FormListeJoueurs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vue\FormListeJoueurs.Designer.cs">
+      <DependentUpon>FormListeJoueurs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\FormListeUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vue\FormListeUsers.Designer.cs">
+      <DependentUpon>FormListeUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Vue\FormMenu.cs">
       <SubType>Form</SubType>
@@ -117,9 +172,6 @@
     <Compile Include="Vue\FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modele\ConnexionBddDAO.cs" />
-    <Compile Include="Modele\Equipe.cs" />
-    <Compile Include="Modele\EquipeDAO.cs" />
     <Compile Include="Modele\Jeu.cs" />
     <Compile Include="Modele\JeuDAO.cs" />
     <Compile Include="Modele\Personne.cs" />
@@ -131,8 +183,29 @@
     <EmbeddedResource Include="Vue\FormDetailEquipe.resx">
       <DependentUpon>FormDetailEquipe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vue\FormEquipe.resx">
-      <DependentUpon>FormEquipe.cs</DependentUpon>
+    <EmbeddedResource Include="Vue\FormDetailJeu.resx">
+      <DependentUpon>FormDetailJeu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vue\FormDetailJoueur.resx">
+      <DependentUpon>FormDetailJoueur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vue\FormDetailUser.resx">
+      <DependentUpon>FormDetailUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vue\FormListeChambres.resx">
+      <DependentUpon>FormListeChambres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vue\FormListeEquipes.resx">
+      <DependentUpon>FormListeEquipes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vue\FormListeJeux.resx">
+      <DependentUpon>FormListeJeux.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vue\FormListeJoueurs.resx">
+      <DependentUpon>FormListeJoueurs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vue\FormListeUsers.resx">
+      <DependentUpon>FormListeUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vue\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
@@ -145,6 +218,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -159,6 +233,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

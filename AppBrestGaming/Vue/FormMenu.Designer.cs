@@ -3,6 +3,9 @@ namespace AppBrestGaming.Vue
 {
     partial class FormMenu
     {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
@@ -26,171 +29,157 @@ namespace AppBrestGaming.Vue
         /// </summary>
         private void InitializeComponent()
         {
-            this.logoBGAcceuil = new System.Windows.Forms.PictureBox();
-            this.bienvenueTextAcceuil = new System.Windows.Forms.Label();
-            this.equipesAcceuil = new System.Windows.Forms.Button();
-            this.joueursAcceuil = new System.Windows.Forms.Button();
-            this.servicesAcceuil = new System.Windows.Forms.Button();
-            this.hotelAcceuil = new System.Windows.Forms.Button();
-            this.administrationAcceuil = new System.Windows.Forms.Button();
-            this.datesAcceuil = new System.Windows.Forms.Label();
-            this.bienvenueUserTextAcceuil = new System.Windows.Forms.Label();
-            this.quitterButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.logoBGAcceuil)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonAdmin = new System.Windows.Forms.Button();
+            this.buttonChambres = new System.Windows.Forms.Button();
+            this.buttonJoueurs = new System.Windows.Forms.Button();
+            this.buttonEquipes = new System.Windows.Forms.Button();
+            this.buttonQuitter = new System.Windows.Forms.Button();
+            this.buttonJeux = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // logoBGAcceuil
+            // label1
             // 
-            this.logoBGAcceuil.Location = new System.Drawing.Point(22, 12);
-            this.logoBGAcceuil.Name = "logoBGAcceuil";
-            this.logoBGAcceuil.Size = new System.Drawing.Size(210, 140);
-            this.logoBGAcceuil.TabIndex = 1;
-            this.logoBGAcceuil.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(157, 48);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(304, 36);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Gestion du tournoi";
             // 
-            // bienvenueTextAcceuil
+            // groupBox1
             // 
-            this.bienvenueTextAcceuil.AutoSize = true;
-            this.bienvenueTextAcceuil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bienvenueTextAcceuil.Location = new System.Drawing.Point(368, 61);
-            this.bienvenueTextAcceuil.Name = "bienvenueTextAcceuil";
-            this.bienvenueTextAcceuil.Size = new System.Drawing.Size(81, 16);
-            this.bienvenueTextAcceuil.TabIndex = 2;
-            this.bienvenueTextAcceuil.Text = "Bienvenue";
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox1.Controls.Add(this.buttonJeux);
+            this.groupBox1.Controls.Add(this.buttonAdmin);
+            this.groupBox1.Controls.Add(this.buttonChambres);
+            this.groupBox1.Controls.Add(this.buttonJoueurs);
+            this.groupBox1.Controls.Add(this.buttonEquipes);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(128, 122);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(382, 347);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Menu";
             // 
-            // equipesAcceuil
+            // buttonAdmin
             // 
-            this.equipesAcceuil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.equipesAcceuil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.equipesAcceuil.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equipesAcceuil.ForeColor = System.Drawing.Color.White;
-            this.equipesAcceuil.Location = new System.Drawing.Point(315, 107);
-            this.equipesAcceuil.Name = "equipesAcceuil";
-            this.equipesAcceuil.Size = new System.Drawing.Size(170, 49);
-            this.equipesAcceuil.TabIndex = 3;
-            this.equipesAcceuil.Text = "Equipes";
-            this.equipesAcceuil.UseVisualStyleBackColor = false;
-            this.equipesAcceuil.Click += new System.EventHandler(this.equipesAcceuil_Click);
+            this.buttonAdmin.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdmin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonAdmin.Location = new System.Drawing.Point(89, 270);
+            this.buttonAdmin.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonAdmin.Name = "buttonAdmin";
+            this.buttonAdmin.Size = new System.Drawing.Size(206, 41);
+            this.buttonAdmin.TabIndex = 4;
+            this.buttonAdmin.Text = "Administration";
+            this.buttonAdmin.UseVisualStyleBackColor = false;
+            this.buttonAdmin.Click += new System.EventHandler(this.buttonAdmin_Click);
             // 
-            // joueursAcceuil
+            // buttonChambres
             // 
-            this.joueursAcceuil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.joueursAcceuil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.joueursAcceuil.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.joueursAcceuil.ForeColor = System.Drawing.Color.White;
-            this.joueursAcceuil.Location = new System.Drawing.Point(315, 174);
-            this.joueursAcceuil.Name = "joueursAcceuil";
-            this.joueursAcceuil.Size = new System.Drawing.Size(170, 49);
-            this.joueursAcceuil.TabIndex = 4;
-            this.joueursAcceuil.Text = "Joueurs";
-            this.joueursAcceuil.UseVisualStyleBackColor = false;
+            this.buttonChambres.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonChambres.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonChambres.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonChambres.Location = new System.Drawing.Point(89, 207);
+            this.buttonChambres.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonChambres.Name = "buttonChambres";
+            this.buttonChambres.Size = new System.Drawing.Size(206, 41);
+            this.buttonChambres.TabIndex = 2;
+            this.buttonChambres.Text = "Chambres";
+            this.buttonChambres.UseVisualStyleBackColor = false;
+            this.buttonChambres.Click += new System.EventHandler(this.buttonChambres_Click);
             // 
-            // servicesAcceuil
+            // buttonJoueurs
             // 
-            this.servicesAcceuil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.servicesAcceuil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.servicesAcceuil.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.servicesAcceuil.ForeColor = System.Drawing.Color.White;
-            this.servicesAcceuil.Location = new System.Drawing.Point(315, 247);
-            this.servicesAcceuil.Name = "servicesAcceuil";
-            this.servicesAcceuil.Size = new System.Drawing.Size(170, 49);
-            this.servicesAcceuil.TabIndex = 5;
-            this.servicesAcceuil.Text = "Services";
-            this.servicesAcceuil.UseVisualStyleBackColor = false;
+            this.buttonJoueurs.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonJoueurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonJoueurs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonJoueurs.Location = new System.Drawing.Point(89, 91);
+            this.buttonJoueurs.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonJoueurs.Name = "buttonJoueurs";
+            this.buttonJoueurs.Size = new System.Drawing.Size(206, 41);
+            this.buttonJoueurs.TabIndex = 1;
+            this.buttonJoueurs.Text = "Participants";
+            this.buttonJoueurs.UseVisualStyleBackColor = false;
+            this.buttonJoueurs.Click += new System.EventHandler(this.buttonJoueurs_Click);
             // 
-            // hotelAcceuil
+            // buttonEquipes
             // 
-            this.hotelAcceuil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.hotelAcceuil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.hotelAcceuil.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotelAcceuil.ForeColor = System.Drawing.Color.White;
-            this.hotelAcceuil.Location = new System.Drawing.Point(315, 319);
-            this.hotelAcceuil.Name = "hotelAcceuil";
-            this.hotelAcceuil.Size = new System.Drawing.Size(170, 49);
-            this.hotelAcceuil.TabIndex = 6;
-            this.hotelAcceuil.Text = "Hotêl";
-            this.hotelAcceuil.UseVisualStyleBackColor = false;
+            this.buttonEquipes.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonEquipes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEquipes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonEquipes.Location = new System.Drawing.Point(89, 30);
+            this.buttonEquipes.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonEquipes.Name = "buttonEquipes";
+            this.buttonEquipes.Size = new System.Drawing.Size(206, 41);
+            this.buttonEquipes.TabIndex = 0;
+            this.buttonEquipes.Text = "Équipes";
+            this.buttonEquipes.UseVisualStyleBackColor = false;
+            this.buttonEquipes.Click += new System.EventHandler(this.buttonEquipes_Click);
             // 
-            // administrationAcceuil
+            // buttonQuitter
             // 
-            this.administrationAcceuil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.administrationAcceuil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.administrationAcceuil.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.administrationAcceuil.ForeColor = System.Drawing.Color.White;
-            this.administrationAcceuil.Location = new System.Drawing.Point(315, 384);
-            this.administrationAcceuil.Name = "administrationAcceuil";
-            this.administrationAcceuil.Size = new System.Drawing.Size(170, 49);
-            this.administrationAcceuil.TabIndex = 7;
-            this.administrationAcceuil.Text = "Administration";
-            this.administrationAcceuil.UseVisualStyleBackColor = false;
+            this.buttonQuitter.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonQuitter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonQuitter.Location = new System.Drawing.Point(562, 427);
+            this.buttonQuitter.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonQuitter.Name = "buttonQuitter";
+            this.buttonQuitter.Size = new System.Drawing.Size(70, 34);
+            this.buttonQuitter.TabIndex = 3;
+            this.buttonQuitter.Text = "Quitter";
+            this.buttonQuitter.UseVisualStyleBackColor = false;
+            this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
             // 
-            // datesAcceuil
+            // buttonJeux
             // 
-            this.datesAcceuil.AutoSize = true;
-            this.datesAcceuil.Location = new System.Drawing.Point(66, 155);
-            this.datesAcceuil.Name = "datesAcceuil";
-            this.datesAcceuil.Size = new System.Drawing.Size(121, 13);
-            this.datesAcceuil.TabIndex = 8;
-            this.datesAcceuil.Text = "Dates du xx/xx au xx/xx";
-            // 
-            // bienvenueUserTextAcceuil
-            // 
-            this.bienvenueUserTextAcceuil.AutoSize = true;
-            this.bienvenueUserTextAcceuil.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bienvenueUserTextAcceuil.Location = new System.Drawing.Point(332, 77);
-            this.bienvenueUserTextAcceuil.Name = "bienvenueUserTextAcceuil";
-            this.bienvenueUserTextAcceuil.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bienvenueUserTextAcceuil.Size = new System.Drawing.Size(141, 20);
-            this.bienvenueUserTextAcceuil.TabIndex = 9;
-            this.bienvenueUserTextAcceuil.Text = "UtilisateurAdmin";
-            // 
-            // quitterButton
-            // 
-            this.quitterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.quitterButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.quitterButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quitterButton.ForeColor = System.Drawing.Color.White;
-            this.quitterButton.Location = new System.Drawing.Point(582, 384);
-            this.quitterButton.Name = "quitterButton";
-            this.quitterButton.Size = new System.Drawing.Size(170, 49);
-            this.quitterButton.TabIndex = 10;
-            this.quitterButton.Text = "Quitter";
-            this.quitterButton.UseVisualStyleBackColor = false;
-            this.quitterButton.Click += new System.EventHandler(this.quitterButton_Click);
+            this.buttonJeux.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonJeux.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonJeux.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonJeux.Location = new System.Drawing.Point(89, 149);
+            this.buttonJeux.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonJeux.Name = "buttonJeux";
+            this.buttonJeux.Size = new System.Drawing.Size(206, 41);
+            this.buttonJeux.TabIndex = 5;
+            this.buttonJeux.Text = "Jeux";
+            this.buttonJeux.UseVisualStyleBackColor = false;
+            this.buttonJeux.Click += new System.EventHandler(this.buttonJeux_Click);
             // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.quitterButton);
-            this.Controls.Add(this.bienvenueUserTextAcceuil);
-            this.Controls.Add(this.datesAcceuil);
-            this.Controls.Add(this.administrationAcceuil);
-            this.Controls.Add(this.hotelAcceuil);
-            this.Controls.Add(this.servicesAcceuil);
-            this.Controls.Add(this.joueursAcceuil);
-            this.Controls.Add(this.equipesAcceuil);
-            this.Controls.Add(this.bienvenueTextAcceuil);
-            this.Controls.Add(this.logoBGAcceuil);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientSize = new System.Drawing.Size(642, 527);
+            this.ControlBox = false;
+            this.Controls.Add(this.buttonQuitter);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormMenu";
-            this.Text = "FormMenu";
-            ((System.ComponentModel.ISupportInitialize)(this.logoBGAcceuil)).EndInit();
+            this.Text = "Menu";
+            this.Load += new System.EventHandler(this.FormMenu_Load);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox logoBGAcceuil;
-        private System.Windows.Forms.Label bienvenueTextAcceuil;
-        private System.Windows.Forms.Button equipesAcceuil;
-        private System.Windows.Forms.Button joueursAcceuil;
-        private System.Windows.Forms.Button servicesAcceuil;
-        private System.Windows.Forms.Button hotelAcceuil;
-        private System.Windows.Forms.Button administrationAcceuil;
-        private System.Windows.Forms.Label datesAcceuil;
-        private System.Windows.Forms.Label bienvenueUserTextAcceuil;
-        private System.Windows.Forms.Button quitterButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button buttonEquipes;
+        private System.Windows.Forms.Button buttonAdmin;
+        private System.Windows.Forms.Button buttonChambres;
+        private System.Windows.Forms.Button buttonJoueurs;
+        private System.Windows.Forms.Button buttonQuitter;
+        private System.Windows.Forms.Button buttonJeux;
     }
 }

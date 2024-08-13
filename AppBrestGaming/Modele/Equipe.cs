@@ -16,11 +16,11 @@ namespace AppBrestGaming.Modele
 
         public Equipe(int id, string nom, string siteWeb, string imageEquipe, List<Personne> listeJoueurs)
         {
-            this.id = id;
-            this.nom = nom;
-            this.siteWeb = siteWeb;
-            this.imageEquipe = imageEquipe;
-            this.listeJoueurs = listeJoueurs;
+            this.Id = id;
+            this.Nom = nom;
+            this.SiteWeb = siteWeb;
+            this.ImageEquipe = imageEquipe;
+            this.ListeJoueurs = listeJoueurs;
         }
 
         public int Id { get => id; set => id = value; }
@@ -28,21 +28,38 @@ namespace AppBrestGaming.Modele
         public string SiteWeb { get => siteWeb; set => siteWeb = value; }
         public string ImageEquipe { get => imageEquipe; set => imageEquipe = value; }
         public List<Personne> ListeJoueurs { get => listeJoueurs; set => listeJoueurs = value; }
+
         public override string ToString()
         {
-            string seriaisation = "--- EQUIPE ---\n";
-            seriaisation += $"Id : {this.id}\n";
-            seriaisation += $"Nom : {this.nom}\n";
-            seriaisation += $"Site Web : {this.siteWeb}\n";
-            seriaisation += $"Logo : {this.imageEquipe}\n";
-            if(ListeJoueurs != null)
+            string joueurs = "";
+            try
             {
-                foreach (Personne joueur in ListeJoueurs)
+                if (listeJoueurs != null)
                 {
-                    seriaisation += joueur.Nomjoueur + ", ";
+                    foreach (Personne joueur in listeJoueurs)
+                    {
+                        joueurs += joueur.Pseudo;
+                        joueurs += ", ";
+                    }
+                    if (joueurs.LastIndexOf(", ") > 0)
+                    {
+                        joueurs = joueurs.Remove(joueurs.LastIndexOf(", "), 1);
+                    }
                 }
+
+                string serialisation = "--- EQUIPE ---\n";
+                serialisation += $"Id : {this.Id}\n";
+                serialisation += $"Nom : {this.Nom}\n";
+                serialisation += $"Site Web : {this.SiteWeb}\n";
+                serialisation += $"Image équipe : {this.ImageEquipe}\n";
+                serialisation += $"Joueurs : {joueurs}\n";
+                return serialisation;
             }
-            return seriaisation;
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Equipe.ToString. Erreur : {ex.Message}");
+            }
+            return "";
         }
     }
 }

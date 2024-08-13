@@ -9,160 +9,197 @@ namespace AppBrestGaming.Modele
 {
     public class PlateformeDAO
     {
-        MySqlConnection maConnexion = ConnexionBddDAO.GetInstance();
-        public List<Plateforme> GetListe()
-        {
-            List<Plateforme> listePlateformes = new List<Plateforme>();
-            try
-            {
-                Plateforme plateformeToAdd = null;
-                // Exécution de la requête SQL
-                string requeteSql = "SELECT * FROM plateforme;";
-                if (maConnexion != null)
-                {
-                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
-                    using (MySqlDataReader reader = commande.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            int idPlateforme = reader.GetInt32("IDPLATEFORME");
-                            string nomPlateforme = reader.GetString("NOMPLATEFORME");
-                            plateformeToAdd = new Plateforme(idPlateforme,nomPlateforme);
-                            listePlateformes.Add(plateformeToAdd);
+        private MySqlConnection maConnexion;
 
-                        }
-
-                    }
-                }
-                return listePlateformes;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return null;
-        }
-        public List<Plateforme> GetListeFromJeu(int idJeu)
-        {
-            List<Plateforme> listePlateformes = new List<Plateforme>();
-            try
-            {
-                Plateforme plateformeToAdd = null;
-                // Exécution de la requête SQL
-                string requeteSql = $"SELECT compatible.IDPLATEFORME, plateforme.NOMPLATEFORME FROM compatible INNER JOIN plateforme ON plateforme.IDPLATEFORME = compatible.IDPLATEFORME WHERE compatible.IDJEU = {idJeu}; ";
-                if (maConnexion != null)
-                {
-                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
-                    using (MySqlDataReader reader = commande.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            int idPlateforme = reader.GetInt32("IDPLATEFORME");
-                            string nomPlateforme = reader.GetString("NOMPLATEFORME");
-                            plateformeToAdd = new Plateforme(idPlateforme, nomPlateforme);
-                            listePlateformes.Add(plateformeToAdd);
-
-                        }
-
-                    }
-                }
-                return listePlateformes;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return null;
-        }
         public Plateforme GetById(int id)
         {
+            Plateforme resPlateforme = null;
             try
             {
-                Plateforme plateformeFound = null;
                 // Exécution de la requête SQL
-                string requeteSql = $"SELECT * FROM plateforme WHERE IDPLATEFORME = {id};";
+                string requeteSql = "SELECT idplateforme, nomplateforme";
+                requeteSql += " FROM plateforme WHERE idplateforme = " + id + "; ";
+
+                maConnexion = ConnexionBddDAO.GetInstance();
                 if (maConnexion != null)
                 {
                     MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
+                    // Exécution de la commande et lecture des résultats
                     using (MySqlDataReader reader = commande.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            int idPlateforme = reader.GetInt32("IDPLATEFORME");
-                            string nomPlateforme = reader.GetString("NOMPLATEFORME");
-                            plateformeFound = new Plateforme(idPlateforme, nomPlateforme);
+                            int idplateforme = reader.GetInt32("idplateforme");
+                            string nom = reader.GetString("nomplateforme");
+                            resPlateforme = new Plateforme(idplateforme, nom);
+                            return resPlateforme;
                         }
-
                     }
                 }
-                return plateformeFound;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
             }
-            return null;
+            return resPlateforme;
         }
+
+
+        public List<Plateforme> GetListe()
+        {
+            List<Plateforme> resListe = null;
+            try
+            {
+                // Exécution de la requête SQL
+                string requeteSql = "SELECT idplateforme, nomplateforme FROM plateforme";
+
+                maConnexion = ConnexionBddDAO.GetInstance();
+                if (maConnexion != null)
+                {
+                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
+                    // Exécution de la commande et lecture des résultats
+                    using (MySqlDataReader reader = commande.ExecuteReader())
+                    {
+                        resListe = new List<Plateforme>();
+                        while (reader.Read())
+                        {
+                            int idplateforme = reader.GetInt32("idplateforme");
+                            string nomplateforme = reader.GetString("nomplateforme");
+
+                            Plateforme nouvellePlateforme = new Plateforme(idplateforme, nomplateforme);
+                            resListe.Add(nouvellePlateforme);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
+            }
+            return resListe;
+        }
+
+        public List<Plateforme> GetListeFromJeu(int idJeu)
+        {
+            List<Plateforme> resListe = null;
+            try
+            {
+                // Exécution de la requête SQL
+                string requeteSql = "SELECT plateforme.idplateforme, nomplateforme FROM compatible ";
+                requeteSql += " INNER JOIN plateforme ON compatible.IDPLATEFORME = plateforme.IDPLATEFORME ";
+                requeteSql += " WHERE compatible.idjeu = " + idJeu + "; ";
+
+                maConnexion = ConnexionBddDAO.GetInstance();
+                if (maConnexion != null)
+                {
+                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
+                    // Exécution de la commande et lecture des résultats
+                    using (MySqlDataReader reader = commande.ExecuteReader())
+                    {
+                        resListe = new List<Plateforme>();
+                        while (reader.Read())
+                        {
+                            int idplateforme = reader.GetInt32("idplateforme");
+                            string nomplateforme = reader.GetString("nomplateforme");
+
+                            Plateforme nouvellePlateforme = new Plateforme(idplateforme, nomplateforme);
+                            resListe.Add(nouvellePlateforme);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
+            }
+            return resListe;
+        }
+
         public bool Ajout(Plateforme plateformeAjout)
         {
             try
             {
-                string requestSql = $"INSERT INTO plateforme (IDPLATEFORME, NOMPLATEFORME) VALUES ({plateformeAjout.IdPlateforme}, '{plateformeAjout.NomPlateforme}');";
+                // Exécution de la requête SQL
+                string requeteSql = "INSERT INTO plateforme (nomplateforme)";
+                requeteSql += $"VALUES ('{plateformeAjout.NomPlateforme}'); ";
+
+                maConnexion = ConnexionBddDAO.GetInstance();
                 if (maConnexion != null)
                 {
-                    MySqlCommand commande = new MySqlCommand(requestSql, maConnexion);
+                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
                     int lignesAffectees = commande.ExecuteNonQuery();
                     if (lignesAffectees == 1)
                     {
                         return true;
                     }
+                    else
+                    {
+                        Console.WriteLine($"Une erreur s'est produite lors de l'insertion. Lignes affectées : {lignesAffectees}");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
             }
             return false;
         }
-        public bool Modification(int idPlateforme, Plateforme plateformeModif)
+
+        public bool Suppression(int idPlateforme)
         {
             try
             {
-                string requestSql = $"UPDATE plateforme SET IDPLATEFORME = '{plateformeModif.IdPlateforme}', NOMPLATEFORME = '{plateformeModif.NomPlateforme}' WHERE IDPLATEFORME = '{idPlateforme}';";
-                if (maConnexion !=null)
+                // Exécution de la requête SQL
+                string requeteSql = $"DELETE FROM plateforme WHERE idplateforme = {idPlateforme};";
+
+                maConnexion = ConnexionBddDAO.GetInstance();
+                if (maConnexion != null)
                 {
-                    MySqlCommand commande = new MySqlCommand(requestSql, maConnexion);
+                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
                     int lignesAffectees = commande.ExecuteNonQuery();
                     if (lignesAffectees == 1)
                     {
                         return true;
                     }
+                    else
+                    {
+                        Console.WriteLine($"Une erreur s'est produite lors de la suppression. Lignes affectées : {lignesAffectees}");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
             }
             return false;
         }
-        public bool Supression(int idPlateforme)
+
+        public bool Modification(int idPlateforme, string nomPlateforme)
         {
             try
             {
-                string requestSql = $"DELETE FROM plateforme WHERE IDPLATEFORME = '{idPlateforme}';";
+                // Exécution de la requête SQL
+                string requeteSql = $"UPDATE plateforme SET nomplateforme = '{nomPlateforme}' ";
+                requeteSql += $" WHERE idplateforme = {idPlateforme};";
+
+                maConnexion = ConnexionBddDAO.GetInstance();
                 if (maConnexion != null)
                 {
-                    MySqlCommand commande = new MySqlCommand(requestSql, maConnexion);
+                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
                     int lignesAffectees = commande.ExecuteNonQuery();
                     if (lignesAffectees == 1)
                     {
                         return true;
                     }
+                    else
+                    {
+                        Console.WriteLine($"Une erreur s'est produite lors de la modification. Lignes affectées : {lignesAffectees}");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
             }
             return false;
         }

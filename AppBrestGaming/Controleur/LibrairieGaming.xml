@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LibrairieGaming</name>
+    </assembly>
+    <members>
+        <member name="T:LibrairieGaming.FichierLog">
+            <summary>
+            Système pour logs les actions faites dans l'application
+            </summary>
+        </member>
+        <member name="M:LibrairieGaming.FichierLog.#ctor(System.String)">
+            <summary>
+            Gets the username associated with the specified ID.
+            </summary>
+            <param name="nomFichier">The unique user ID.</param>
+            <returns>A string containing the username for the specified ID.</returns>
+        </member>
+        <member name="M:LibrairieGaming.FichierLog.EcrireLog(System.String)">
+            <summary>
+            Permet d'écrire dans le fichier de log instancier.
+            </summary>
+            <param name="chaineLog">Message a écrire dans le fichier de log.</param>
+        </member>
+        <member name="M:LibrairieGaming.FichierLog.AfficherFichier">
+            <summary>
+            Permet d'afficher les lignes du fichier.
+            </summary>
+            <returns>Retourne dans le console l'ensemble des lignes du fichier.</returns>
+        </member>
+        <member name="M:LibrairieGaming.FichierLog.OccurrencesLogin(System.String)">
+            <summary>
+            Permet de compter le nombre de fois ou un apparait un login.
+            </summary>
+            <param name="login">Login à rechercher dans le fichier de log.</param>
+            <returns>Renvoie le nombre d'occurence d'un login dans un fichier.</returns>
+        </member>
+        <member name="M:LibrairieGaming.FichierLog.SuppressionFichier">
+            <summary>
+            Supprime le fichier de log instancié.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LibrairieGaming.UtilitaireSaisies">
+            <summary>
+            Utilitaire pour vérifier la saisie
+            </summary>
+        </member>
+        <member name="M:LibrairieGaming.UtilitaireSaisies.ConvertirDateEnFormatSQL(System.DateTime)">
+            <summary>
+            Permet de convertir une date en format SQL
+            </summary>
+            <param name="date">Date de type DateTime</param>
+            <returns>Chaine de caractères avec la date dans le format SQL</returns>
+        </member>
+        <member name="M:LibrairieGaming.UtilitaireSaisies.VerifChaineAlphabetique(System.String)">
+            <summary>
+            Vérifie que la chaine de caractère ne comporte uniquement que des lettres.
+            </summary>
+            <param name="saisie">Chaine de caractères à tester</param>
+            <returns>Renvoie un booléen</returns>
+        </member>
+        <member name="M:LibrairieGaming.UtilitaireSaisies.VerifNumeroTelephone(System.String)">
+            <summary>
+            Permet de vérifier que la chaine de caractère est bien un numéro de téléphone.
+            </summary>
+            <param name="numero">Chaine de caractères du numéro à tester</param>
+            <returns>Renvoie un booléen</returns>
+        </member>
+        <member name="M:LibrairieGaming.UtilitaireSaisies.ControleMotDePasse(System.String)">
+            <summary>
+            Permet de vérifier que le mot de passe respecte bien les critères de sécurité. C'est à dire 8 caractères avec lettres et chiffres.
+            </summary>
+            <param name="motDePasse">Mot de passe à vérifier</param>
+            <returns>Renvoie un booléen</returns>
+        </member>
+    </members>
+</doc>
