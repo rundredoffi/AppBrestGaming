@@ -44,15 +44,8 @@ namespace AppBrestGaming.Vue
                 this.textBoxImage.Text = equipeCourante.ImageEquipe;
                 // création de l'image à partir du chemin stocké en base de données
                 string cheminImage = @"..\..\" + equipeCourante.ImageEquipe;
-                try
-                {
-                    Image image = Image.FromFile(cheminImage);
-                    this.imageEquipe.Image = image;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Problème de chargement de l'image : " + ex.Message);
-                }
+                Image image = Image.FromFile(cheminImage);
+                this.imageEquipe.Image = image;
             }
             else
             {

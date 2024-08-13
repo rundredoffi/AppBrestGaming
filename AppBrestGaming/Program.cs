@@ -16,7 +16,7 @@ namespace AppBrestGaming
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Vue.FormMenu());
+            Application.Run(new Vue.FormConnexion());
         }
     }
 }

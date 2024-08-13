@@ -20,7 +20,7 @@ namespace AppBrestGaming.Modele
             {
                 try
                 {
-                    chaineConnexion = "Data Source=localhost;Initial Catalog=njd_gaming;User ID=myroot;Password=root123*";
+                    chaineConnexion = "Data Source=localhost;Initial Catalog=njd_gaming_crypt;User ID=myroot;Password=root123*";
                     maConnexion = new MySqlConnection(chaineConnexion);
                     if (maConnexion.State == System.Data.ConnectionState.Closed
                         || maConnexion.State == System.Data.ConnectionState.Broken)

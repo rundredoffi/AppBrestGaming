@@ -64,7 +64,7 @@ namespace AppBrestGaming.Vue
             this.tableauEquipes.Margin = new System.Windows.Forms.Padding(2);
             this.tableauEquipes.MultiSelect = false;
             this.tableauEquipes.Name = "tableauEquipes";
-            this.tableauEquipes.Size = new System.Drawing.Size(582, 450);
+            this.tableauEquipes.Size = new System.Drawing.Size(582, 305);
             this.tableauEquipes.TabIndex = 0;
             this.tableauEquipes.UseCompatibleStateImageBehavior = false;
             this.tableauEquipes.View = System.Windows.Forms.View.Details;
@@ -93,7 +93,7 @@ namespace AppBrestGaming.Vue
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(206, 18);
+            this.label1.Location = new System.Drawing.Point(150, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(283, 26);
@@ -105,7 +105,7 @@ namespace AppBrestGaming.Vue
             this.buttonRetourMenu.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonRetourMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRetourMenu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonRetourMenu.Location = new System.Drawing.Point(668, 467);
+            this.buttonRetourMenu.Location = new System.Drawing.Point(669, 370);
             this.buttonRetourMenu.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRetourMenu.Name = "buttonRetourMenu";
             this.buttonRetourMenu.Size = new System.Drawing.Size(80, 37);
@@ -173,14 +173,14 @@ namespace AppBrestGaming.Vue
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(60, 60);
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // FormListeEquipes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 574);
+            this.ClientSize = new System.Drawing.Size(807, 444);
             this.ControlBox = false;
             this.Controls.Add(this.buttonSupp);
             this.Controls.Add(this.buttonModif);
@@ -191,7 +191,7 @@ namespace AppBrestGaming.Vue
             this.Controls.Add(this.tableauEquipes);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormListeEquipes";
-            this.Text = "-";
+            this.Text = "Gestion des équipes";
             this.Load += new System.EventHandler(this.FormEquipes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

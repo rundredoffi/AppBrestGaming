@@ -13,14 +13,16 @@ namespace AppBrestGaming.Modele
         private string login;
         private string password;
         private string role;
+        private string sel;
 
-        public User(int idUser, string prenom, string login, string password, string role)
+        public User(int idUser, string prenom, string login, string password, string role, string sel)
         {
-            this.IdUser = idUser;
-            this.Prenom = prenom;
-            this.Login = login;
-            this.Password = password;
-            this.Role = role;
+            this.idUser = idUser;
+            this.prenom = prenom;
+            this.login = login;
+            this.password = password;
+            this.role = role;
+            this.sel = sel;
         }
 
         public int IdUser { get => idUser; set => idUser = value; }
@@ -28,6 +30,7 @@ namespace AppBrestGaming.Modele
         public string Login { get => login; set => login = value; }
         public string Password { get => password; set => password = value; }
         public string Role { get => role; set => role = value; }
+        public string Sel { get => sel; set => sel = value; }
 
         public override string ToString()
         {

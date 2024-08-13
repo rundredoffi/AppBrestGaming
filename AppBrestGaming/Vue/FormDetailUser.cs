@@ -42,7 +42,7 @@ namespace AppBrestGaming.Vue
                 this.textBoxPrenom.Text = userCourant.Prenom;
                 this.textBoxLogin.Text = userCourant.Login;
                 this.textBoxPassword.Text = userCourant.Password;
-                this.ListeDeroulante_Role.Text = userCourant.Role;
+                this.textBoxRole.Text = userCourant.Role;
             }
             else
             {
@@ -52,6 +52,7 @@ namespace AppBrestGaming.Vue
                 this.textBoxPrenom.Text = "";
                 this.textBoxLogin.Text = "";
                 this.textBoxPassword.Text = "";
+                this.textBoxRole.Text = "";
             }
 
             // si le booléen "accesModif" est vrai,
@@ -67,7 +68,7 @@ namespace AppBrestGaming.Vue
                 this.textBoxPrenom.Enabled = true;
                 this.textBoxLogin.Enabled = true;
                 this.textBoxPassword.Enabled = true;
-                this.ListeDeroulante_Role.Enabled = true;
+                this.textBoxRole.Enabled = true;
             }
             else
             {
@@ -77,22 +78,7 @@ namespace AppBrestGaming.Vue
                 this.textBoxPrenom.Enabled = false;
                 this.textBoxLogin.Enabled = false;
                 this.textBoxPassword.Enabled = false;
-                this.ListeDeroulante_Role.Enabled = false;
-            }
-
-            // Dropdown de roles :
-            ListeDeroulante_Role.Items.Clear(); // on vide le Combobox en cas de rechargement
-
-            // Chargement de la liste des utilisateurs dans le listView "tableauUsers"
-            List<Role> listeRoles = userControleur.GetListeRoles();
-            if (listeRoles != null)
-            {
-                foreach (Role role in listeRoles)
-                {
-                    ListViewItem item = new ListViewItem(role.Id.ToString());
-                    item.SubItems.Add(role.Nom);
-                    ListeDeroulante_Role.Items.Add(item);
-                }
+                this.textBoxRole.Enabled = false;
             }
         }
 
@@ -108,7 +94,7 @@ namespace AppBrestGaming.Vue
             string prenom = this.textBoxPrenom.Text;
             string login = this.textBoxLogin.Text;
             string password = this.textBoxPassword.Text;
-            string role = this.ListeDeroulante_Role.Text;
+            string role = this.textBoxRole.Text;
             // si une des zones est vide, on renvoie une erreur
             if (prenom.Length < 1 || login.Length < 1 || password.Length < 1 || role.Length < 1)
             {

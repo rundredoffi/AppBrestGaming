@@ -14,7 +14,7 @@ namespace AppBrestGaming.Modele
             try
             {
                 // Exécution de la requête SQL
-                string requeteSql = "SELECT idUser, prenom, login, password, role ";
+                string requeteSql = "SELECT idUser, prenom, login, password, role, sel ";
                 requeteSql += " FROM users WHERE idUser = " + id + "; ";
 
                 maConnexion = ConnexionBddDAO.GetInstance();
@@ -31,8 +31,9 @@ namespace AppBrestGaming.Modele
                             string login = reader.GetString("login");
                             string password = reader.GetString("password");
                             string role = reader.GetString("role");
+                            string sel = reader.GetString("sel");
 
-                            resUser = new User(idUser, prenom, login, password, role);
+                            resUser = new User(idUser, prenom, login, password, role,sel);
                         }
                     }
                 }
@@ -50,7 +51,7 @@ namespace AppBrestGaming.Modele
             try
             {
                 // Exécution de la requête SQL
-                string requeteSql = "SELECT idUser, prenom, password, role ";
+                string requeteSql = "SELECT idUser, prenom, password, role, sel ";
                 requeteSql += " FROM users WHERE login = '" + login + "'; ";
 
                 maConnexion = ConnexionBddDAO.GetInstance();
@@ -66,8 +67,9 @@ namespace AppBrestGaming.Modele
                             string prenom = reader.GetString("prenom");
                             string password = reader.GetString("password");
                             string role = reader.GetString("role");
+                            string sel = reader.GetString("sel");
 
-                            resUser = new User(idUser, prenom, login, password, role);
+                            resUser = new User(idUser, prenom, login, password, role, sel);
                         }
                     }
                 }
@@ -77,41 +79,6 @@ namespace AppBrestGaming.Modele
                 Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
             }
             return resUser;
-        }
-
-        public List<Role> GetListeRole()
-        {
-            List<Role> resListe = null;
-            try
-            {
-                // Exécution de la requête SQL
-                string requeteSql = "SELECT id, role ";
-                requeteSql += " FROM role; ";
-
-                maConnexion = ConnexionBddDAO.GetInstance();
-                if (maConnexion != null)
-                {
-                    MySqlCommand commande = new MySqlCommand(requeteSql, maConnexion);
-                    // Exécution de la commande et lecture des résultats
-                    using (MySqlDataReader reader = commande.ExecuteReader())
-                    {
-                        resListe = new List<Role>();
-                        while (reader.Read())
-                        {
-                            int id = reader.GetInt32("id");
-                            string role = reader.GetString("role");
-
-                            Role nouveauRole = new Role(id, role);
-                            resListe.Add(nouveauRole);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Erreur lors de l'exécution de la requête : " + ex.Message);
-            }
-            return resListe;
         }
 
         public List<User> GetListe()
@@ -138,8 +105,9 @@ namespace AppBrestGaming.Modele
                             string login = reader.GetString("login");
                             string password = reader.GetString("password");
                             string role = reader.GetString("role");
+                            string sel = reader.GetString("sel");
 
-                            User nouveauUser = new User(idUser, prenom, login, password, role);
+                            User nouveauUser = new User(idUser, prenom, login, password, role, sel);
                             resListe.Add(nouveauUser);
                         }
                     }

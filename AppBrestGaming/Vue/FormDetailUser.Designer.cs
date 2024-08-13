@@ -32,6 +32,7 @@ namespace AppBrestGaming.Vue
             this.buttonAnnuler = new System.Windows.Forms.Button();
             this.buttonValider = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
+            this.textBoxRole = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.labelRole = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@ namespace AppBrestGaming.Vue
             this.labelValeurId = new System.Windows.Forms.Label();
             this.labelId = new System.Windows.Forms.Label();
             this.labelPrenom = new System.Windows.Forms.Label();
-            this.ListeDeroulante_Role = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // buttonAnnuler
@@ -49,10 +49,10 @@ namespace AppBrestGaming.Vue
             this.buttonAnnuler.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAnnuler.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonAnnuler.Location = new System.Drawing.Point(509, 241);
-            this.buttonAnnuler.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonAnnuler.Location = new System.Drawing.Point(679, 297);
+            this.buttonAnnuler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonAnnuler.Name = "buttonAnnuler";
-            this.buttonAnnuler.Size = new System.Drawing.Size(86, 37);
+            this.buttonAnnuler.Size = new System.Drawing.Size(115, 46);
             this.buttonAnnuler.TabIndex = 29;
             this.buttonAnnuler.Text = "Annuler";
             this.buttonAnnuler.UseVisualStyleBackColor = false;
@@ -63,10 +63,10 @@ namespace AppBrestGaming.Vue
             this.buttonValider.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonValider.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonValider.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonValider.Location = new System.Drawing.Point(509, 290);
-            this.buttonValider.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonValider.Location = new System.Drawing.Point(679, 357);
+            this.buttonValider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonValider.Name = "buttonValider";
-            this.buttonValider.Size = new System.Drawing.Size(86, 37);
+            this.buttonValider.Size = new System.Drawing.Size(115, 46);
             this.buttonValider.TabIndex = 28;
             this.buttonValider.Text = "Valider";
             this.buttonValider.UseVisualStyleBackColor = false;
@@ -77,31 +77,37 @@ namespace AppBrestGaming.Vue
             this.buttonOK.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonOK.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonOK.Location = new System.Drawing.Point(527, 280);
-            this.buttonOK.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonOK.Location = new System.Drawing.Point(703, 345);
+            this.buttonOK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(80, 37);
+            this.buttonOK.Size = new System.Drawing.Size(107, 46);
             this.buttonOK.TabIndex = 27;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = false;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
+            // textBoxRole
+            // 
+            this.textBoxRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRole.Location = new System.Drawing.Point(227, 294);
+            this.textBoxRole.Name = "textBoxRole";
+            this.textBoxRole.Size = new System.Drawing.Size(350, 34);
+            this.textBoxRole.TabIndex = 26;
+            // 
             // textBoxPassword
             // 
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(170, 180);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxPassword.Location = new System.Drawing.Point(227, 221);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(264, 28);
+            this.textBoxPassword.Size = new System.Drawing.Size(350, 34);
             this.textBoxPassword.TabIndex = 24;
             // 
             // textBoxLogin
             // 
             this.textBoxLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLogin.Location = new System.Drawing.Point(170, 129);
-            this.textBoxLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxLogin.Location = new System.Drawing.Point(227, 159);
             this.textBoxLogin.Name = "textBoxLogin";
-            this.textBoxLogin.Size = new System.Drawing.Size(264, 28);
+            this.textBoxLogin.Size = new System.Drawing.Size(350, 34);
             this.textBoxLogin.TabIndex = 23;
             // 
             // labelRole
@@ -109,10 +115,9 @@ namespace AppBrestGaming.Vue
             this.labelRole.AutoSize = true;
             this.labelRole.Cursor = System.Windows.Forms.Cursors.Cross;
             this.labelRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRole.Location = new System.Drawing.Point(110, 243);
-            this.labelRole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelRole.Location = new System.Drawing.Point(146, 299);
             this.labelRole.Name = "labelRole";
-            this.labelRole.Size = new System.Drawing.Size(49, 24);
+            this.labelRole.Size = new System.Drawing.Size(64, 29);
             this.labelRole.TabIndex = 22;
             this.labelRole.Text = "Role";
             // 
@@ -121,10 +126,9 @@ namespace AppBrestGaming.Vue
             this.labelPassword.AutoSize = true;
             this.labelPassword.Cursor = System.Windows.Forms.Cursors.Cross;
             this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPassword.Location = new System.Drawing.Point(39, 184);
-            this.labelPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPassword.Location = new System.Drawing.Point(52, 226);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(123, 24);
+            this.labelPassword.Size = new System.Drawing.Size(158, 29);
             this.labelPassword.TabIndex = 20;
             this.labelPassword.Text = "Mot de passe";
             // 
@@ -133,20 +137,18 @@ namespace AppBrestGaming.Vue
             this.labelLogin.AutoSize = true;
             this.labelLogin.Cursor = System.Windows.Forms.Cursors.Cross;
             this.labelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLogin.Location = new System.Drawing.Point(103, 133);
-            this.labelLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelLogin.Location = new System.Drawing.Point(137, 164);
             this.labelLogin.Name = "labelLogin";
-            this.labelLogin.Size = new System.Drawing.Size(57, 24);
+            this.labelLogin.Size = new System.Drawing.Size(73, 29);
             this.labelLogin.TabIndex = 19;
             this.labelLogin.Text = "Login";
             // 
             // textBoxPrenom
             // 
             this.textBoxPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPrenom.Location = new System.Drawing.Point(170, 78);
-            this.textBoxPrenom.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxPrenom.Location = new System.Drawing.Point(227, 96);
             this.textBoxPrenom.Name = "textBoxPrenom";
-            this.textBoxPrenom.Size = new System.Drawing.Size(264, 28);
+            this.textBoxPrenom.Size = new System.Drawing.Size(350, 34);
             this.textBoxPrenom.TabIndex = 18;
             // 
             // labelValeurId
@@ -154,10 +156,9 @@ namespace AppBrestGaming.Vue
             this.labelValeurId.AutoSize = true;
             this.labelValeurId.Cursor = System.Windows.Forms.Cursors.Cross;
             this.labelValeurId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValeurId.Location = new System.Drawing.Point(166, 27);
-            this.labelValeurId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelValeurId.Location = new System.Drawing.Point(222, 33);
             this.labelValeurId.Name = "labelValeurId";
-            this.labelValeurId.Size = new System.Drawing.Size(20, 24);
+            this.labelValeurId.Size = new System.Drawing.Size(24, 29);
             this.labelValeurId.TabIndex = 17;
             this.labelValeurId.Text = "x";
             // 
@@ -166,10 +167,9 @@ namespace AppBrestGaming.Vue
             this.labelId.AutoSize = true;
             this.labelId.Cursor = System.Windows.Forms.Cursors.Cross;
             this.labelId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelId.Location = new System.Drawing.Point(133, 27);
-            this.labelId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelId.Location = new System.Drawing.Point(177, 33);
             this.labelId.Name = "labelId";
-            this.labelId.Size = new System.Drawing.Size(25, 24);
+            this.labelId.Size = new System.Drawing.Size(33, 29);
             this.labelId.TabIndex = 16;
             this.labelId.Text = "Id";
             // 
@@ -178,31 +178,22 @@ namespace AppBrestGaming.Vue
             this.labelPrenom.AutoSize = true;
             this.labelPrenom.Cursor = System.Windows.Forms.Cursors.Cross;
             this.labelPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPrenom.Location = new System.Drawing.Point(84, 82);
-            this.labelPrenom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPrenom.Location = new System.Drawing.Point(112, 101);
             this.labelPrenom.Name = "labelPrenom";
-            this.labelPrenom.Size = new System.Drawing.Size(77, 24);
+            this.labelPrenom.Size = new System.Drawing.Size(98, 29);
             this.labelPrenom.TabIndex = 15;
             this.labelPrenom.Text = "Prénom";
             // 
-            // ListeDeroulante_Role
-            // 
-            this.ListeDeroulante_Role.FormattingEnabled = true;
-            this.ListeDeroulante_Role.Location = new System.Drawing.Point(170, 241);
-            this.ListeDeroulante_Role.Name = "ListeDeroulante_Role";
-            this.ListeDeroulante_Role.Size = new System.Drawing.Size(264, 21);
-            this.ListeDeroulante_Role.TabIndex = 31;
-            // 
             // FormDetailUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(659, 351);
+            this.ClientSize = new System.Drawing.Size(879, 432);
             this.ControlBox = false;
-            this.Controls.Add(this.ListeDeroulante_Role);
             this.Controls.Add(this.buttonAnnuler);
             this.Controls.Add(this.buttonValider);
             this.Controls.Add(this.buttonOK);
+            this.Controls.Add(this.textBoxRole);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.labelRole);
@@ -212,7 +203,6 @@ namespace AppBrestGaming.Vue
             this.Controls.Add(this.labelValeurId);
             this.Controls.Add(this.labelId);
             this.Controls.Add(this.labelPrenom);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDetailUser";
             this.Text = "Utilisateur";
             this.Load += new System.EventHandler(this.FormDetailUser_Load);
@@ -226,6 +216,7 @@ namespace AppBrestGaming.Vue
         private System.Windows.Forms.Button buttonAnnuler;
         private System.Windows.Forms.Button buttonValider;
         private System.Windows.Forms.Button buttonOK;
+        private System.Windows.Forms.TextBox textBoxRole;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.TextBox textBoxLogin;
         private System.Windows.Forms.Label labelRole;
@@ -235,6 +226,5 @@ namespace AppBrestGaming.Vue
         private System.Windows.Forms.Label labelValeurId;
         private System.Windows.Forms.Label labelId;
         private System.Windows.Forms.Label labelPrenom;
-        private System.Windows.Forms.ComboBox ListeDeroulante_Role;
     }
 }

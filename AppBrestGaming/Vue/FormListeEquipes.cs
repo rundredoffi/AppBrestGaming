@@ -36,25 +36,9 @@ namespace AppBrestGaming.Vue
             List<Equipe> listeEquipes = controleurEquipe.GetListeEquipes();
             if (listeEquipes != null)
             {
-                int indexImage = 0;
                 foreach (Equipe equipe in listeEquipes)
                 {
                     ListViewItem item = new ListViewItem(equipe.Id.ToString());
-                    // création de l'image à partir du chemin stocké en base de données
-                    string cheminImage = @"..\..\" + equipe.ImageEquipe;
-                    try
-                    {
-                        Image image = Image.FromFile(cheminImage);
-                        imageList1.Images.Add(image);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("Problème de chargement de l'image : " + ex.Message);
-                    }
-
-                    item.ImageIndex = indexImage;
-                    item.StateImageIndex = indexImage;
-                    indexImage++;
                     item.SubItems.Add(equipe.Nom);
                     item.SubItems.Add(equipe.SiteWeb);
                     if (equipe.ListeJoueurs != null)
@@ -63,12 +47,12 @@ namespace AppBrestGaming.Vue
                     }
                     tableauEquipes.Items.Add(item);
                 }
-                tableauEquipes.SmallImageList = imageList1;
             }
         }
 
         private void buttonSupp_Click(object sender, EventArgs e)
         {
+            
             if (tableauEquipes.SelectedItems != null && tableauEquipes.SelectedItems.Count > 0)
             {
                 if (int.TryParse(tableauEquipes.SelectedItems[0].Text, out int idEquipe))

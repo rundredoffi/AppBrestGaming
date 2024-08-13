@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppBrestGaming.Modele;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,16 @@ namespace AppBrestGaming.Vue
 {
     public partial class FormMenu : Form
     {
+        private User userConnecte;
         public FormMenu()
         {
             InitializeComponent();
+        }
+
+        public FormMenu(User userConnecteParam)
+        {
+            InitializeComponent();
+            userConnecte = userConnecteParam;
         }
 
         private void buttonQuitter_Click(object sender, EventArgs e)
@@ -34,7 +42,15 @@ namespace AppBrestGaming.Vue
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
-
+            if (userConnecte != null && userConnecte.Role.Equals("admin"))
+            {
+                this.buttonAdmin.Visible = true;
+            }
+            else
+            {
+                //this.buttonAdmin.Visible = false;
+                this.buttonAdmin.Visible = false;
+            }
         }
 
         private void buttonAdmin_Click(object sender, EventArgs e)
@@ -50,7 +66,7 @@ namespace AppBrestGaming.Vue
         private void buttonChambres_Click(object sender, EventArgs e)
         {
             this.Hide(); // on cache le menu
-            // création d'un nouveau formulaire Chambres : 
+            // création d'un nouveau formulaire Clients : 
             FormListeChambres formulaireChambres = new FormListeChambres();
             formulaireChambres.ShowDialog(); // ouverture du formulaire dans une fenêtre modale
             // On revient ici lorsque ShowDialog() est terminé, donc quand on ferme le formulaire Chambres
@@ -60,20 +76,10 @@ namespace AppBrestGaming.Vue
         private void buttonJoueurs_Click(object sender, EventArgs e)
         {
             this.Hide(); // on cache le menu
-            // création d'un nouveau formulaire Joueurs : 
+            // création d'un nouveau formulaire Clients : 
             FormListeJoueurs formulaireJoueurs = new FormListeJoueurs();
             formulaireJoueurs.ShowDialog(); // ouverture du formulaire dans une fenêtre modale
             // On revient ici lorsque ShowDialog() est terminé, donc quand on ferme le formulaire Joueurs
-            this.Show();
-        }
-
-        private void buttonJeux_Click(object sender, EventArgs e)
-        {
-            this.Hide(); // on cache le menu
-            // création d'un nouveau formulaire Jeux : 
-            FormListeJeux formulaireJeux = new FormListeJeux();
-            formulaireJeux.ShowDialog(); // ouverture du formulaire dans une fenêtre modale
-            // On revient ici lorsque ShowDialog() est terminé, donc quand on ferme le formulaire Jeux
             this.Show();
         }
     }

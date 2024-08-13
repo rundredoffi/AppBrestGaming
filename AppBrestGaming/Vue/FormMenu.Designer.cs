@@ -36,7 +36,6 @@ namespace AppBrestGaming.Vue
             this.buttonJoueurs = new System.Windows.Forms.Button();
             this.buttonEquipes = new System.Windows.Forms.Button();
             this.buttonQuitter = new System.Windows.Forms.Button();
-            this.buttonJeux = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +53,6 @@ namespace AppBrestGaming.Vue
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox1.Controls.Add(this.buttonJeux);
             this.groupBox1.Controls.Add(this.buttonAdmin);
             this.groupBox1.Controls.Add(this.buttonChambres);
             this.groupBox1.Controls.Add(this.buttonJoueurs);
@@ -64,7 +62,7 @@ namespace AppBrestGaming.Vue
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(382, 347);
+            this.groupBox1.Size = new System.Drawing.Size(382, 308);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menu";
@@ -74,7 +72,7 @@ namespace AppBrestGaming.Vue
             this.buttonAdmin.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdmin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonAdmin.Location = new System.Drawing.Point(89, 270);
+            this.buttonAdmin.Location = new System.Drawing.Point(88, 238);
             this.buttonAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAdmin.Name = "buttonAdmin";
             this.buttonAdmin.Size = new System.Drawing.Size(206, 41);
@@ -88,7 +86,7 @@ namespace AppBrestGaming.Vue
             this.buttonChambres.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonChambres.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonChambres.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonChambres.Location = new System.Drawing.Point(89, 207);
+            this.buttonChambres.Location = new System.Drawing.Point(88, 167);
             this.buttonChambres.Margin = new System.Windows.Forms.Padding(2);
             this.buttonChambres.Name = "buttonChambres";
             this.buttonChambres.Size = new System.Drawing.Size(206, 41);
@@ -102,7 +100,7 @@ namespace AppBrestGaming.Vue
             this.buttonJoueurs.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonJoueurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonJoueurs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonJoueurs.Location = new System.Drawing.Point(89, 91);
+            this.buttonJoueurs.Location = new System.Drawing.Point(89, 97);
             this.buttonJoueurs.Margin = new System.Windows.Forms.Padding(2);
             this.buttonJoueurs.Name = "buttonJoueurs";
             this.buttonJoueurs.Size = new System.Drawing.Size(206, 41);
@@ -138,26 +136,12 @@ namespace AppBrestGaming.Vue
             this.buttonQuitter.UseVisualStyleBackColor = false;
             this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
             // 
-            // buttonJeux
-            // 
-            this.buttonJeux.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.buttonJeux.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonJeux.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonJeux.Location = new System.Drawing.Point(89, 149);
-            this.buttonJeux.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonJeux.Name = "buttonJeux";
-            this.buttonJeux.Size = new System.Drawing.Size(206, 41);
-            this.buttonJeux.TabIndex = 5;
-            this.buttonJeux.Text = "Jeux";
-            this.buttonJeux.UseVisualStyleBackColor = false;
-            this.buttonJeux.Click += new System.EventHandler(this.buttonJeux_Click);
-            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(642, 527);
+            this.ClientSize = new System.Drawing.Size(642, 476);
             this.ControlBox = false;
             this.Controls.Add(this.buttonQuitter);
             this.Controls.Add(this.groupBox1);
@@ -180,6 +164,5 @@ namespace AppBrestGaming.Vue
         private System.Windows.Forms.Button buttonChambres;
         private System.Windows.Forms.Button buttonJoueurs;
         private System.Windows.Forms.Button buttonQuitter;
-        private System.Windows.Forms.Button buttonJeux;
     }
 }

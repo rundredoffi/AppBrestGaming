@@ -50,13 +50,13 @@
     </Reference>
     <Reference Include="LibrairieGaming, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Controleur\LibrairieGaming.dll</HintPath>
+      <HintPath>..\..\LibrairieGaming\LibrairieGaming\bin\Debug\LibrairieGaming.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=8.3.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.3.0\lib\net462\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=8.4.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.4.0\lib\net462\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -100,7 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controleur\ControleurChambre.cs" />
-    <Compile Include="Controleur\ControleurJeu.cs" />
     <Compile Include="Controleur\ControleurEquipe.cs" />
     <Compile Include="Controleur\ControleurJoueur.cs" />
     <Compile Include="Controleur\ControleurUser.cs" />
@@ -109,20 +108,19 @@
     <Compile Include="Modele\ConnexionBddDAO.cs" />
     <Compile Include="Modele\Equipe.cs" />
     <Compile Include="Modele\EquipeDAO.cs" />
-    <Compile Include="Modele\Role.cs" />
     <Compile Include="Modele\User.cs" />
     <Compile Include="Modele\UserDAO.cs" />
+    <Compile Include="Vue\FormConnexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vue\FormConnexion.Designer.cs">
+      <DependentUpon>FormConnexion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vue\FormDetailEquipe.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vue\FormDetailEquipe.Designer.cs">
       <DependentUpon>FormDetailEquipe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vue\FormDetailJeu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vue\FormDetailJeu.Designer.cs">
-      <DependentUpon>FormDetailJeu.cs</DependentUpon>
     </Compile>
     <Compile Include="Vue\FormDetailJoueur.cs">
       <SubType>Form</SubType>
@@ -147,12 +145,6 @@
     </Compile>
     <Compile Include="Vue\FormListeEquipes.Designer.cs">
       <DependentUpon>FormListeEquipes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vue\FormListeJeux.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vue\FormListeJeux.Designer.cs">
-      <DependentUpon>FormListeJeux.cs</DependentUpon>
     </Compile>
     <Compile Include="Vue\FormListeJoueurs.cs">
       <SubType>Form</SubType>
@@ -180,11 +172,11 @@
     <Compile Include="Modele\PlateformeDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Vue\FormConnexion.resx">
+      <DependentUpon>FormConnexion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vue\FormDetailEquipe.resx">
       <DependentUpon>FormDetailEquipe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vue\FormDetailJeu.resx">
-      <DependentUpon>FormDetailJeu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vue\FormDetailJoueur.resx">
       <DependentUpon>FormDetailJoueur.cs</DependentUpon>
@@ -197,9 +189,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vue\FormListeEquipes.resx">
       <DependentUpon>FormListeEquipes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vue\FormListeJeux.resx">
-      <DependentUpon>FormListeJeux.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vue\FormListeJoueurs.resx">
       <DependentUpon>FormListeJoueurs.cs</DependentUpon>
